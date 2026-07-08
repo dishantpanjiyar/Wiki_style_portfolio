@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dishant Panjiyar - Wikipedia</title>
+<style>
+  :root{
+    --link-blue:#0645ad;
+    --link-visited:#0b0080;
+    --border-gray:#a2a9b1;
+    --bg-body:#fff;
+    --bg-page:#f6f6f6;
+    --text-black:#202122;
+    --sidebar-bg:#f8f9fa;
+    --infobox-bg:#f8f9fa;
+    --toc-bg:#f8f9fa;
+    --header-border:#a2a9b1;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg-page);
+    color:var(--text-black);
+    font-family:sans-serif;
+    font-size:14px;
+    line-height:1.6;
+  }
+  a{color:var(--link-blue); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a.new{color:#ba0000;}
+
+  .personal-bar{
+    background:#eaecf0;
+    border-bottom:1px solid var(--border-gray);
+    font-size:12px;
+    padding:4px 12px;
+    display:flex;
+    justify-content:flex-end;
+    gap:14px;
+  }
+  .personal-bar a{color:#3366cc;}
+
+  .site-header{
+    background:#fff;
+    border-bottom:1px solid var(--border-gray);
+    display:flex;
+    align-items:center;
+    padding:8px 16px;
+    gap:16px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+    cursor:pointer;
+  }
+  .logo-globe{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 30% 30%, #fff 0 2px, transparent 3px) 0 0/9px 9px,
+      #dcdcdc;
+    border:1px solid #999;
+    position:relative;
+    overflow:hidden;
+  }
+  .logo-globe::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 6px, #b5b5b5 6px 7px),
+      repeating-linear-gradient(90deg, transparent 0 6px, #b5b5b5 6px 7px);
+    opacity:.6;
+  }
+  .logo-text{
+    font-family:"Linux Libertine","Georgia",serif;
+    line-height:1.05;
+  }
+  .logo-text .top{
+    font-size:19px;
+    font-weight:400;
+    letter-spacing:0.5px;
+  }
+  .logo-text .bottom{
+    font-size:11px;
+    color:#54595d;
+    letter-spacing:0.5px;
+  }
+  .search-wrap{
+    flex:1;
+    max-width:520px;
+    display:flex;
+  }
+  .search-wrap input{
+    flex:1;
+    padding:7px 10px;
+    border:1px solid var(--border-gray);
+    border-radius:2px 0 0 2px;
+    font-size:14px;
+    outline-offset:2px;
+  }
+  .search-wrap button{
+    border:1px solid var(--border-gray);
+    border-left:none;
+    background:#f8f9fa;
+    padding:0 12px;
+    border-radius:0 2px 2px 0;
+    cursor:pointer;
+  }
+  .header-right{
+    margin-left:auto;
+    display:flex;
+    gap:14px;
+    font-size:13px;
+    white-space:nowrap;
+  }
+
+  .page-wrap{
+    max-width:1200px;
+    margin:0 auto;
+    background:var(--bg-body);
+    display:flex;
+    border-left:1px solid var(--border-gray);
+    border-right:1px solid var(--border-gray);
+    min-height:100vh;
+  }
+  .sidebar{
+    width:200px;
+    flex-shrink:0;
+    background:var(--sidebar-bg);
+    border-right:1px solid var(--border-gray);
+    padding:16px 0;
+    font-size:13px;
+  }
+  .sidebar h3{
+    font-size:13px;
+    color:#54595d;
+    margin:0 0 6px 16px;
+    font-weight:normal;
+  }
+  .sidebar ul{
+    list-style:none;
+    margin:0 0 20px 0;
+    padding:0;
+  }
+  .sidebar li{
+    padding:3px 16px;
+  }
+  .sidebar li:hover{
+    background:#eaecf0;
+  }
+
+  .content{
+    flex:1;
+    padding:20px 32px 40px;
+    min-width:0;
+  }
+
+  .article-title{
+    font-family:"Linux Libertine","Georgia",serif;
+    font-size:2em;
+    font-weight:normal;
+    border-bottom:1px solid var(--header-border);
+    padding-bottom:8px;
+    margin:0 0 4px;
+  }
+  .article-subtitle{
+    font-size:0.9em;
+    color:#54595d;
+    font-style:italic;
+    margin-bottom:14px;
+  }
+  .article-tools{
+    float:right;
+    font-size:12px;
+    margin-top:-30px;
+  }
+
+  h2{
+    font-family:"Linux Libertine","Georgia",serif;
+    font-weight:normal;
+    font-size:1.5em;
+    border-bottom:1px solid var(--header-border);
+    padding-bottom:6px;
+    margin-top:32px;
+    margin-bottom:12px;
+    position:relative;
+  }
+  h3{
+    font-family:"Linux Libertine","Georgia",serif;
+    font-weight:bold;
+    font-size:1.15em;
+    margin-top:24px;
+    margin-bottom:8px;
+  }
+  .edit-link{
+    float:right;
+    font-size:12px;
+    font-weight:normal;
+    font-family:sans-serif;
+  }
+  .edit-link::before{content:"[";}
+  .edit-link::after{content:"]";}
+
+  p{margin:0 0 14px;}
+
+  sup.cite{
+    font-size:11px;
+    line-height:0;
+  }
+  sup.cite a{
+    padding:0 2px;
+  }
+
+  .infobox{
+    float:right;
+    width:280px;
+    margin:0 0 20px 20px;
+    border:1px solid var(--border-gray);
+    background:var(--infobox-bg);
+    font-size:13px;
+  }
+  .infobox-title{
+    text-align:center;
+    font-family:"Linux Libertine","Georgia",serif;
+    font-size:1.3em;
+    font-weight:bold;
+    padding:8px 8px 4px;
+  }
+  .infobox-subtitle{
+    text-align:center;
+    font-size:0.9em;
+    padding:0 8px 8px;
+    border-bottom:1px solid var(--border-gray);
+  }
+  .infobox-image{
+    width:100%;
+    aspect-ratio:4/4.2;
+    background:linear-gradient(135deg,#cfd8e3,#9fb3c8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#4a5b6d;
+    font-size:12px;
+    border-bottom:1px solid var(--border-gray);
+    text-align:center;
+    padding:10px;
+  }
+  .infobox-caption{
+    text-align:center;
+    font-size:0.85em;
+    padding:6px 8px;
+    border-bottom:1px solid var(--border-gray);
+    color:#54595d;
+  }
+  .infobox table{
+    width:100%;
+    border-collapse:collapse;
+  }
+  .infobox td, .infobox th{
+    padding:6px 8px;
+    vertical-align:top;
+    border-top:1px solid #e0e0e0;
+    text-align:left;
+  }
+  .infobox th{
+    width:38%;
+    font-weight:bold;
+    color:#202122;
+  }
+  .infobox-section-header td{
+    background:#eaecf0;
+    font-weight:bold;
+    text-align:center;
+  }
+
+  .toc{
+    display:inline-block;
+    background:var(--toc-bg);
+    border:1px solid var(--border-gray);
+    padding:10px 20px 10px 10px;
+    margin:10px 0 20px;
+    font-size:13px;
+  }
+  .toc-title{
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:8px;
+  }
+  .toc ol{
+    margin:0;
+    padding-left:20px;
+  }
+  .toc ol ol{
+    padding-left:22px;
+    margin-top:4px;
+  }
+  .toc li{margin-bottom:4px;}
+  .toc-num{color:#54595d; margin-right:4px;}
+
+  table.wikitable{
+    border-collapse:collapse;
+    margin:12px 0 20px;
+    background:#f8f9fa;
+    font-size:13px;
+    width:100%;
+  }
+  table.wikitable th, table.wikitable td{
+    border:1px solid var(--border-gray);
+    padding:6px 10px;
+  }
+  table.wikitable th{
+    background:#eaecf0;
+  }
+
+  ul.plain-list{margin:0 0 14px 0; padding-left:28px;}
+  ul.plain-list li{margin-bottom:4px;}
+
+  .references{
+    font-size:12.5px;
+    padding-left:28px;
+    columns:2;
+    column-gap:24px;
+  }
+  .references li{
+    margin-bottom:6px;
+    break-inside:avoid;
+  }
+  .references li:target, li.highlight{
+    background:#eaf3ff;
+  }
+  .back-ref{margin-right:4px;}
+
+  .clearfix{clear:both;}
+  .catlinks{
+    margin-top:40px;
+    border:1px solid var(--border-gray);
+    background:var(--sidebar-bg);
+    padding:6px 10px;
+    font-size:13px;
+    clear:both;
+  }
+  .site-footer{
+    max-width:1200px;
+    margin:0 auto;
+    padding:16px 32px 40px;
+    font-size:12px;
+    color:#54595d;
+  }
+  .site-footer hr{
+    border:none;
+    border-top:1px solid var(--border-gray);
+    margin-bottom:12px;
+  }
+
+  .placeholder{
+    background:#fff8e1;
+    border:1px dashed #d9b90a;
+    padding:1px 4px;
+    font-style:italic;
+    color:#6b5b00;
+  }
+
+  @media (max-width:760px){
+    .sidebar{display:none;}
+    .infobox{
+      float:none;
+      width:100%;
+      margin:0 0 20px;
+    }
+    .content{padding:16px;}
+    .references{columns:1;}
+    .search-wrap{max-width:none;}
+    .logo-text .top{font-size:16px;}
+  }
+
+  .edit-tip{
+    position:fixed;
+    background:#202122;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:3px;
+    font-size:12px;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .15s ease;
+    z-index:999;
+  }
+  .edit-tip.show{opacity:1;}
+</style>
+</head>
+<body>
+
+<div class="personal-bar">
+  <a href="#">Not logged in</a>
+  <a href="#">Talk</a>
+  <a href="#">Contributions</a>
+  <a href="#">Create account</a>
+  <a href="#">Log in</a>
+</div>
+
+<div class="site-header">
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <div class="logo-globe"></div>
+    <div class="logo-text">
+      <div class="top">WIKIPEDIA</div>
+      <div class="bottom">The Free Portfolio</div>
+    </div>
+  </div>
+  <div class="search-wrap">
+    <input type="text" id="searchBox" placeholder="Search Wikipedia" autocomplete="off">
+    <button onclick="fakeSearch()">🔍</button>
+  </div>
+  <div class="header-right">
+    <a href="#">Donate</a>
+    <a href="#">Preferences</a>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <div class="sidebar">
+    <h3>Navigation</h3>
+    <ul>
+      <li><a href="#top">Main page</a></li>
+      <li><a href="#contents">Contents</a></li>
+      <li><a href="#">Current events</a></li>
+      <li><a href="#">Random article</a></li>
+      <li><a href="#">About Wikipedia</a></li>
+      <li><a href="#">Contact us</a></li>
+    </ul>
+    <h3>Contribute</h3>
+    <ul>
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Learn to edit</a></li>
+      <li><a href="#">Community portal</a></li>
+      <li><a href="#">Recent changes</a></li>
+      <li><a href="#">Upload file</a></li>
+    </ul>
+    <h3>Tools</h3>
+    <ul>
+      <li><a href="#">What links here</a></li>
+      <li><a href="#">Related changes</a></li>
+      <li><a href="#">Special pages</a></li>
+      <li><a href="#">Cite this page</a></li>
+      <li><a href="#">Download as PDF</a></li>
+    </ul>
+    <h3>Languages</h3>
+    <ul>
+      <li><a href="#">नेपाली</a></li>
+      <li><a href="#">हिन्दी</a></li>
+      <li><a href="#">Español</a></li>
+    </ul>
+  </div>
+
+  <div class="content" id="top">
+
+    <div class="article-tools">
+      <span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span> ·
+      <a href="#" onclick="showTip(event)">view history</a>
+    </div>
+    <h1 class="article-title">Dishant Panjiyar</h1>
+    <div class="article-subtitle">full-stack developer and freelance software consultant</div>
+
+    <div class="infobox">
+      <div class="infobox-title">Dishant Panjiyar</div>
+      <div class="infobox-subtitle">Full-Stack Developer</div>
+      <div class="infobox-image">[ photo placeholder ]</div>
+      <div class="infobox-caption">Panjiyar, freelance developer, Kathmandu</div>
+      <table>
+        <tr><th>Born</th><td>Bardaghat, Nawalparasi, Nepal</td></tr>
+        <tr><th>Residence</th><td>Kathmandu, Nepal</td></tr>
+        <tr><th>Education</th><td>BSc (Hons) Computing — Islington College, Kamalpokhari, Kathmandu</td></tr>
+        <tr><th>Occupation</th><td>Freelance full-stack developer</td></tr>
+        <tr><th>Years active</th><td><span class="placeholder">year you started freelancing/interning?</span> – present</td></tr>
+        <tr><th>Known for</th><td>KTM Transit; APD dealership platform; enterprise POS &amp; inventory systems</td></tr>
+        <tr><th>Website</th><td><span class="placeholder">your website, if any</span></td></tr>
+        <tr><th>GitHub</th><td><a href="https://github.com/dixyan" target="_blank" rel="noopener">github.com/dixyan</a></td></tr>
+        <tr><th>LinkedIn</th><td><a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">linkedin.com/in/dishant-panjiyar</a></td></tr>
+      </table>
+    </div>
+
+    <p>
+      <strong>Dishant Panjiyar</strong> is a full-stack software developer and freelance
+      consultant based in Kathmandu, Nepal. A recent graduate with a BSc (Hons) in
+      Computing, he works primarily on web application development, spanning both
+      front-end and back-end systems, and has delivered enterprise software including
+      point-of-sale and inventory management systems for small and medium
+      businesses.<sup class="cite"><a href="#ref1" id="cite1">[1]</a></sup>
+    </p>
+    <p>
+      Beyond development, Panjiyar has experience in client handling, social media
+      management, and graphic design, and has served as project manager on several
+      of his own projects, allocating and dividing tasks across
+      teams.<sup class="cite"><a href="#ref2" id="cite2">[2]</a></sup> He has also
+      experimented with machine learning, training a movie recommendation and
+      rating model on user reviews and critic scores.
+    </p>
+
+    <div class="toc" id="contents">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#early-life"><span class="toc-num">1</span>Early life and education</a></li>
+        <li><a href="#career"><span class="toc-num">2</span>Career</a></li>
+        <li><a href="#projects"><span class="toc-num">3</span>Notable projects</a>
+          <ol>
+            <li><a href="#proj-apd"><span class="toc-num">3.1</span>APD — Auto Parts Dealership Platform</a></li>
+            <li><a href="#proj-ktm"><span class="toc-num">3.2</span>KTM Transit</a></li>
+            <li><a href="#proj-math"><span class="toc-num">3.3</span>Applied math modeling</a></li>
+            <li><a href="#proj-other"><span class="toc-num">3.4</span>Other projects</a></li>
+          </ol>
+        </li>
+        <li><a href="#skills"><span class="toc-num">4</span>Skills</a></li>
+        <li><a href="#see-also"><span class="toc-num">5</span>See also</a></li>
+        <li><a href="#references"><span class="toc-num">6</span>References</a></li>
+        <li><a href="#external"><span class="toc-num">7</span>External links</a></li>
+      </ol>
+    </div>
+
+    <h2 id="early-life">Early life and education<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <p>
+      Panjiyar was born in Bardaghat, Nawalparasi, Nepal. He completed his
+      secondary education at Nepal APF Secondary School in Kirtipur, Kathmandu,
+      followed by his +2 (higher secondary) studies at GoldenGate International
+      College in Old Baneshwor, Kathmandu.<sup class="cite"><a href="#ref3" id="cite3">[3]</a></sup>
+      He went on to earn a BSc (Hons) in Computing from Islington College in
+      Kamalpokhari, Kathmandu, graduating as a recent graduate of the program.
+    </p>
+
+    <h2 id="career">Career<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <p>
+      After completing an internship — <span class="placeholder">name of the company/organization where you interned?</span> —
+      Panjiyar began working part-time as a freelance developer, taking on
+      full-stack web development projects for clients across several
+      industries.<sup class="cite"><a href="#ref1" id="cite1b">[1]</a></sup> His
+      freelance work has included e-commerce websites, transit-mapping tools, and
+      management systems for restaurants, cafes, clinics, labs, and pharmacies.
+    </p>
+
+    <h2 id="projects">Notable projects<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+
+    <h3 id="proj-apd">APD — Auto Parts Dealership Platform</h3>
+    <p>
+      A full dealership management system built around an ASP.NET Core Web API
+      backend and a React/Vite frontend, using PostgreSQL through Entity
+      Framework Core.<sup class="cite"><a href="#ref1" id="cite1c">[1]</a></sup>
+      The backend covers dependency injection and EF Core patterns such as
+      eager loading, soft delete, and DTO mapping, alongside async data flows
+      and CORS configuration. The frontend implements a master-detail fetch
+      pattern with optimistic UI updates, Base64 image uploads, and form
+      validation via react-hook-form and Zod.
+    </p>
+
+    <h3 id="proj-ktm">KTM Transit</h3>
+    <p>
+      A progressive web app that helps riders plan bus journeys across the
+      Kathmandu Valley, developed for Islington College.<sup class="cite"><a href="#ref1" id="cite1d">[1]</a></sup>
+      The app functions offline using IndexedDB and a service worker, renders
+      maps with Leaflet.js and OpenStreetMap data, geocodes locations with
+      Nominatim, and calculates routes with OSRM, backed by Supabase for data
+      storage and authentication.
+    </p>
+
+    <h3 id="proj-math">Applied math modeling</h3>
+    <p>
+      Fitted exponential growth models to Nepal's GDP (World Bank, 2000–2023)
+      and population (1960–2023) figures, evaluating fit quality using R²
+      values and documenting interpolation, extrapolation, and the
+      limitations of each model. A related project solved a
+      supply-and-demand equilibrium problem both algebraically and through an
+      interactive visualization.
+    </p>
+
+    <h3 id="proj-other">Other projects</h3>
+    <p>
+      Panjiyar has also built management systems for cafes and restaurants
+      (sales, billing, table booking, inventory, and vendor orders), a lab
+      and pharmacy management system (vendor sales, profit/loss tracking,
+      medicine inventory, patient card booking, and digital patient records),
+      an e-commerce website, and a movie recommendation model trained on user
+      reviews and critic ratings.
+    </p>
+
+    <table class="wikitable">
+      <tr><th>Project</th><th>Stack</th><th>Role</th></tr>
+      <tr><td>APD — Auto Parts Dealership Platform</td><td>ASP.NET Core, React, PostgreSQL, EF Core</td><td>Full-stack developer</td></tr>
+      <tr><td>KTM Transit</td><td>Leaflet.js, Supabase, IndexedDB, OSRM</td><td>Full-stack developer</td></tr>
+      <tr><td>Applied math modeling</td><td>Desmos, regression analysis</td><td>Author</td></tr>
+      <tr><td>Café Management System</td><td>.NET, SQL</td><td>Developer</td></tr>
+      <tr><td>Lab &amp; Pharmacy Management System</td><td>.NET, SQL</td><td>Developer</td></tr>
+      <tr><td>E-commerce Website</td><td>HTML, CSS, JavaScript</td><td>Developer</td></tr>
+      <tr><td>Movie Recommendation Model</td><td>Python, machine learning</td><td>Developer</td></tr>
+    </table>
+
+    <h2 id="skills">Skills<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <p>
+      Panjiyar's technical background spans backend architecture, frontend
+      engineering, and applied data analysis, developed through coursework
+      and independent project work.
+    </p>
+    <table class="wikitable">
+      <tr><th>Area</th><th>Tools &amp; concepts</th></tr>
+      <tr><td>Backend</td><td>ASP.NET Core, C#, Dapper, Entity Framework Core</td></tr>
+      <tr><td>Frontend</td><td>React, Vite, Tailwind CSS, jQuery</td></tr>
+      <tr><td>Data</td><td>PostgreSQL, Supabase, SQL</td></tr>
+      <tr><td>Core concepts</td><td>Dependency injection, async/await, REST, CORS</td></tr>
+      <tr><td>Modeling &amp; analysis</td><td>Regression, Desmos, statistics</td></tr>
+      <tr><td>Tooling</td><td>Git, IIS Express, database migrations</td></tr>
+      <tr><td>Professional</td><td>Project management, client communication, social media management, graphic design</td></tr>
+    </table>
+
+    <h2 id="see-also">See also<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <ul class="plain-list">
+      <li><a href="#" class="new">List of public transit mapping projects</a></li>
+      <li><a href="#" class="new">Point-of-sale software</a></li>
+    </ul>
+
+    <h2 id="references">References<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <ol class="references">
+      <li id="ref1"><a href="#cite1" class="back-ref">^</a> Panjiyar, Dishant. GitHub profile. <a href="https://github.com/dixyan" target="_blank" rel="noopener">github.com/dixyan</a>.</li>
+      <li id="ref2"><a href="#cite2" class="back-ref">^</a> Panjiyar, Dishant. LinkedIn profile. <a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">linkedin.com/in/dishant-panjiyar</a>.</li>
+      <li id="ref3"><a href="#cite3" class="back-ref">^</a> Nepal APF Secondary School, Kirtipur; GoldenGate International College, Old Baneshwor — school records.</li>
+    </ol>
+
+    <h2 id="external">External links<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <ul class="plain-list">
+      <li><a href="https://github.com/dixyan" target="_blank" rel="noopener">GitHub profile</a></li>
+      <li><a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">LinkedIn profile</a></li>
+    </ul>
+
+    <div class="clearfix"></div>
+
+    <div class="catlinks">
+      <strong>Categories:</strong>
+      <a href="#">Software engineers</a> ·
+      <a href="#">Freelance developers</a> ·
+      <a href="#">People from Nawalparasi District</a> ·
+      <a href="#">Living people</a> ·
+      <a href="#">Islington College alumni</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="site-footer">
+  <hr>
+  This page was last edited on 5 July 2026, at 09:14 (UTC). This is a personal
+  portfolio page styled after Wikipedia; it is not affiliated with the
+  Wikimedia Foundation.
+  <br><br>
+  Privacy policy · About "Wikipedia" · Disclaimers · Contact
+</div>
+
+<div class="edit-tip" id="editTip">This is a demo page — editing is disabled ✏️</div>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e){
+      const targetId = this.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'center'});
+        if(target.tagName === 'LI'){
+          target.classList.add('highlight');
+          setTimeout(()=> target.classList.remove('highlight'), 1600);
+        }
+      }
+    });
+  });
+
+  function showTip(e){
+    e.preventDefault();
+    const tip = document.getElementById('editTip');
+    tip.style.left = (e.clientX + 12) + 'px';
+    tip.style.top = (e.clientY + 12) + 'px';
+    tip.classList.add('show');
+    clearTimeout(window._tipTimeout);
+    window._tipTimeout = setTimeout(()=> tip.classList.remove('show'), 1800);
+  }
+
+  function fakeSearch(){
+    const q = document.getElementById('searchBox').value.trim().toLowerCase();
+    if(!q) return;
+    const headers = document.querySelectorAll('h2, h3');
+    for(const h of headers){
+      if(h.textContent.toLowerCase().includes(q)){
+        h.scrollIntoView({behavior:'smooth', block:'center'});
+        return;
+      }
+    }
+    alert('No matching section found on this page (this is a demo search).');
+  }
+  document.getElementById('searchBox').addEventListener('keydown', e=>{
+    if(e.key === 'Enter') fakeSearch();
+  });
+</script>
+
+</body>
+</html>
