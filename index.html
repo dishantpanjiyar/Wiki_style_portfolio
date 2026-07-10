@@ -395,13 +395,13 @@
 </head>
 <body>
 
-<div class="personal-bar">
+<!-- <div class="personal-bar">
   <a href="#">Not logged in</a>
   <a href="#">Talk</a>
   <a href="#">Contributions</a>
   <a href="#">Create account</a>
-  <a href="#">Log in</a>
-</div>
+  <a href="https://en.wikipedia.org/w/index.php?title=Special%3AUserLogin&returnto=Main+Page&experiments%5B0%5D=we-1-8-account-creation-no-desktop-benefits%3Aunsampled">Log in</a>
+</div> -->
 
 <div class="site-header">
   <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -412,13 +412,13 @@
     </div>
   </div>
   <div class="search-wrap">
-    <input type="text" id="searchBox" placeholder="Search Wikipedia" autocomplete="off">
-    <button onclick="fakeSearch()">🔍</button>
+    <input type="text" id="search" placeholder="Search Wikipedia" autocomplete="off">
+    <button onclick="goToWiki()">🔍</button>
   </div>
-  <div class="header-right">
+  <!-- <div class="header-right">
     <a href="#">Donate</a>
     <a href="#">Preferences</a>
-  </div>
+  </div> -->
 </div>
 
 <div class="page-wrap">
@@ -478,8 +478,8 @@
         <tr><th>Occupation</th><td>Freelance full-stack developer</td></tr>
         <tr><th>Years active</th><td><span>2025 August</span> – present</td></tr>
         <tr><th>Known for</th><td>KTM Transit; APD dealership platform; enterprise POS &amp; inventory systems</td></tr>
-        <tr><th>Website</th><td><span><a href="https://dishantpanjiyar.com.np" target="_blank" rel="noopener">dishantpanjiyar.com</a></span></td></tr>
-        <tr><th>GitHub</th><td><a href="https://github.com/dixyan" target="_blank" rel="noopener">github.com/dixyan</a></td></tr>
+        <tr><th>Website</th><td><span><a href="https://dishantpanjiyar.com.np" target="_blank" rel="noopener">dishantpanjiyar.com.np</a></span></td></tr>
+        <tr><th>GitHub</th><td><a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener">github.com/dishantpanjiyar</a></td></tr>
         <tr><th>LinkedIn</th><td><a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">linkedin.com/in/dishant-panjiyar</a></td></tr>
       </table>
     </div>
@@ -533,10 +533,7 @@
 
     <h2 id="career">Career<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
     <p>
-      After completing an internship — <span class="placeholder">name of the company/organization where you interned?</span> —
-      Panjiyar began working part-time as a freelance developer, taking on
-      full-stack web development projects for clients across several
-      industries.<sup class="cite"><a href="#ref1" id="cite1b">[1]</a></sup> His
+      After completing an internship at Insource Inc Pvt Ltd, where he worked on .net and SQL-based projects for clients with POS and inventory management needs, with a focus on back-end development, and gaining experience in client communication and project management, with a focus on delivering solutions that met client requirements, and also worked in feature development and bug fixing, Panjiyar began working part-time as a freelance developer, taking on full-stack web development projects for clients across several industries.<sup class="cite"><a href="#ref1" id="cite1a">[1]</a></sup> His
       freelance work has included e-commerce websites, transit-mapping tools, and
       management systems for restaurants, cafes, clinics, labs, and pharmacies.
     </p>
@@ -558,7 +555,7 @@
     <h3 id="proj-ktm">KTM Transit</h3>
     <p>
       A progressive web app that helps riders plan bus journeys across the
-      Kathmandu Valley, developed for Islington College.<sup class="cite"><a href="#ref1" id="cite1d">[1]</a></sup>
+      Kathmandu Valley, developed as a FYP(final year project) at Islington College.<sup class="cite"><a href="#ref1" id="cite1d">[1]</a></sup>
       The app functions offline using IndexedDB and a service worker, renders
       maps with Leaflet.js and OpenStreetMap data, geocodes locations with
       Nominatim, and calculates routes with OSRM, backed by Supabase for data
@@ -621,14 +618,14 @@
 
     <h2 id="references">References<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
     <ol class="references">
-      <li id="ref1"><a href="#cite1" class="back-ref">^</a> Panjiyar, Dishant. GitHub profile. <a href="https://github.com/dixyan" target="_blank" rel="noopener">github.com/dixyan</a>.</li>
+      <li id="ref1"><a href="#cite1" class="back-ref">^</a> Panjiyar, Dishant. GitHub profile. <a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener">github.com/dishantpanjiyar</a>.</li>
       <li id="ref2"><a href="#cite2" class="back-ref">^</a> Panjiyar, Dishant. LinkedIn profile. <a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">linkedin.com/in/dishant-panjiyar</a>.</li>
       <li id="ref3"><a href="#cite3" class="back-ref">^</a> Nepal APF Secondary School, Kirtipur; GoldenGate International College, Old Baneshwor — school records.</li>
     </ol>
 
     <h2 id="external">External links<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
     <ul class="plain-list">
-      <li><a href="https://github.com/dixyan" target="_blank" rel="noopener">GitHub profile</a></li>
+      <li><a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener">GitHub profile</a></li>
       <li><a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">LinkedIn profile</a></li>
     </ul>
 
@@ -655,7 +652,7 @@
   Privacy policy · About "Wikipedia" · Disclaimers · Contact
 </div>
 
-<div class="edit-tip" id="editTip">This is a demo page — editing is disabled ✏️</div>
+<div class="edit-tip" id="editTip">editing is disabled ✏️</div>
 
 <script>
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -683,20 +680,12 @@
     window._tipTimeout = setTimeout(()=> tip.classList.remove('show'), 1800);
   }
 
-  function fakeSearch(){
-    const q = document.getElementById('searchBox').value.trim().toLowerCase();
-    if(!q) return;
-    const headers = document.querySelectorAll('h2, h3');
-    for(const h of headers){
-      if(h.textContent.toLowerCase().includes(q)){
-        h.scrollIntoView({behavior:'smooth', block:'center'});
-        return;
-      }
-    }
-    alert('No matching section found on this page (this is a demo search).');
+  function goToWiki() {
+    const term = encodeURIComponent(document.getElementById("search").value);
+    window.location.href = `https://en.wikipedia.org/wiki/Special:Search?search=${term}`;
   }
-  document.getElementById('searchBox').addEventListener('keydown', e=>{
-    if(e.key === 'Enter') fakeSearch();
+  document.getElementById('search').addEventListener('keydown', e=>{
+    if(e.key === 'Enter') goToWiki();
   });
 </script>
 
