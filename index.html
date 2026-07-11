@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dishant Panjiyar - Wikipedia</title>
+<title data-i18n="pageTitle">Dishant Panjiyar - Wikipedia</title>
 <style>
   :root{
     --link-blue:#0645ad;
-    --link-visited:#0b0080;
     --border-gray:#a2a9b1;
     --bg-body:#fff;
     --bg-page:#f6f6f6;
@@ -29,17 +28,6 @@
   a{color:var(--link-blue); text-decoration:none;}
   a:hover{text-decoration:underline;}
   a.new{color:#ba0000;}
-
-  .personal-bar{
-    background:#eaecf0;
-    border-bottom:1px solid var(--border-gray);
-    font-size:12px;
-    padding:4px 12px;
-    display:flex;
-    justify-content:flex-end;
-    gap:14px;
-  }
-  .personal-bar a{color:#3366cc;}
 
   .site-header{
     background:#fff;
@@ -92,7 +80,7 @@
   }
   .search-wrap{
     flex:1;
-    max-width:520px;
+    max-width:460px;
     display:flex;
   }
   .search-wrap input{
@@ -111,12 +99,29 @@
     border-radius:0 2px 2px 0;
     cursor:pointer;
   }
-  .header-right{
+
+  .lang-switch{
     margin-left:auto;
     display:flex;
-    gap:14px;
-    font-size:13px;
-    white-space:nowrap;
+    gap:6px;
+    flex-shrink:0;
+  }
+  .lang-switch button{
+    border:1px solid var(--border-gray);
+    background:#f8f9fa;
+    color:#202122;
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:3px;
+    cursor:pointer;
+  }
+  .lang-switch button:hover{
+    background:#eaecf0;
+  }
+  .lang-switch button.active{
+    background:var(--link-blue);
+    color:#fff;
+    border-color:var(--link-blue);
   }
 
   .page-wrap{
@@ -152,6 +157,9 @@
   }
   .sidebar li:hover{
     background:#eaecf0;
+  }
+  .sidebar li[data-lang-btn]{
+    cursor:pointer;
   }
 
   .content{
@@ -272,11 +280,6 @@
     font-weight:bold;
     color:#202122;
   }
-  .infobox-section-header td{
-    background:#eaecf0;
-    font-weight:bold;
-    text-align:center;
-  }
 
   .toc{
     display:inline-block;
@@ -344,6 +347,7 @@
     font-size:13px;
     clear:both;
   }
+  .catlinks a{margin-right:4px;}
   .site-footer{
     max-width:1200px;
     margin:0 auto;
@@ -357,14 +361,6 @@
     margin-bottom:12px;
   }
 
-  .placeholder{
-    background:#fff8e1;
-    border:1px dashed #d9b90a;
-    padding:1px 4px;
-    font-style:italic;
-    color:#6b5b00;
-  }
-
   @media (max-width:760px){
     .sidebar{display:none;}
     .infobox{
@@ -374,7 +370,7 @@
     }
     .content{padding:16px;}
     .references{columns:1;}
-    .search-wrap{max-width:none;}
+    .search-wrap{display:none;}
     .logo-text .top{font-size:16px;}
   }
 
@@ -395,96 +391,91 @@
 </head>
 <body>
 
-<!-- <div class="personal-bar">
-  <a href="#">Not logged in</a>
-  <a href="#">Talk</a>
-  <a href="#">Contributions</a>
-  <a href="#">Create account</a>
-  <a href="https://en.wikipedia.org/w/index.php?title=Special%3AUserLogin&returnto=Main+Page&experiments%5B0%5D=we-1-8-account-creation-no-desktop-benefits%3Aunsampled">Log in</a>
-</div> -->
-
 <div class="site-header">
   <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
     <div class="logo-globe"></div>
     <div class="logo-text">
       <div class="top">WIKIPEDIA</div>
-      <div class="bottom">The Free Portfolio</div>
+      <div class="bottom" data-i18n="tagline">The Free Portfolio</div>
     </div>
   </div>
   <div class="search-wrap">
-    <input type="text" id="search" placeholder="Search Wikipedia" autocomplete="off">
+    <input type="text" id="search" data-i18n-placeholder="searchPlaceholder" placeholder="Search Wikipedia" autocomplete="off">
     <button onclick="goToWiki()">🔍</button>
   </div>
-  <!-- <div class="header-right">
-    <a href="#">Donate</a>
-    <a href="#">Preferences</a>
-  </div> -->
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang-btn="en" onclick="setLanguage('en')">EN</button>
+    <button type="button" data-lang-btn="ne" onclick="setLanguage('ne')">नेपाली</button>
+    <button type="button" data-lang-btn="es" onclick="setLanguage('es')">ES</button>
+    <button type="button" data-lang-btn="de" onclick="setLanguage('de')">DE</button>
+  </div>
 </div>
 
 <div class="page-wrap">
 
   <div class="sidebar">
-    <h3>Navigation</h3>
+    <h3 data-i18n="navNavigation">Navigation</h3>
     <ul>
-      <li><a href="#top">Main page</a></li>
-      <li><a href="#contents">Contents</a></li>
-      <li><a href="#">Current events</a></li>
-      <li><a href="#">Random article</a></li>
-      <li><a href="#">About Wikipedia</a></li>
-      <li><a href="#">Contact us</a></li>
+      <li><a href="#top" data-i18n="navMain">Main page</a></li>
+      <li><a href="#contents" data-i18n="navContents">Contents</a></li>
+      <li><a href="#" data-i18n="navCurrent">Current events</a></li>
+      <li><a href="#" data-i18n="navRandom">Random article</a></li>
+      <li><a href="#" data-i18n="navAbout">About Wikipedia</a></li>
+      <li><a href="#" data-i18n="navContact">Contact us</a></li>
     </ul>
-    <h3>Contribute</h3>
+    <h3 data-i18n="navContribute">Contribute</h3>
     <ul>
-      <li><a href="#">Help</a></li>
-      <li><a href="#">Learn to edit</a></li>
-      <li><a href="#">Community portal</a></li>
-      <li><a href="#">Recent changes</a></li>
-      <li><a href="#">Upload file</a></li>
+      <li><a href="#" data-i18n="navHelp">Help</a></li>
+      <li><a href="#" data-i18n="navLearn">Learn to edit</a></li>
+      <li><a href="#" data-i18n="navCommunity">Community portal</a></li>
+      <li><a href="#" data-i18n="navRecent">Recent changes</a></li>
+      <li><a href="#" data-i18n="navUpload">Upload file</a></li>
     </ul>
-    <h3>Tools</h3>
+    <h3 data-i18n="navTools">Tools</h3>
     <ul>
-      <li><a href="#">What links here</a></li>
-      <li><a href="#">Related changes</a></li>
-      <li><a href="#">Special pages</a></li>
-      <li><a href="#">Cite this page</a></li>
-      <li><a href="#">Download as PDF</a></li>
+      <li><a href="#" data-i18n="navWhatLinks">What links here</a></li>
+      <li><a href="#" data-i18n="navRelated">Related changes</a></li>
+      <li><a href="#" data-i18n="navSpecial">Special pages</a></li>
+      <li><a href="#" data-i18n="navCite">Cite this page</a></li>
+      <li><a href="#" data-i18n="navDownload">Download as PDF</a></li>
     </ul>
-    <h3>Languages</h3>
+    <h3 data-i18n="navLanguages">Languages</h3>
     <ul>
-      <li><a href="#">नेपाली</a></li>
-      <li><a href="#">हिन्दी</a></li>
-      <li><a href="#">Español</a></li>
+      <li data-lang-btn="ne" onclick="setLanguage('ne')"><a href="#">नेपाली</a></li>
+      <li data-lang-btn="es" onclick="setLanguage('es')"><a href="#">Español</a></li>
+      <li data-lang-btn="de" onclick="setLanguage('de')"><a href="#">Deutsch</a></li>
+      <li data-lang-btn="en" onclick="setLanguage('en')"><a href="#">English</a></li>
     </ul>
   </div>
 
   <div class="content" id="top">
 
     <div class="article-tools">
-      <span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span> ·
-      <a href="#" onclick="showTip(event)">view history</a>
+      <span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span> ·
+      <a href="#" onclick="showTip(event)" data-i18n="viewHistory">view history</a>
     </div>
     <h1 class="article-title">Dishant Panjiyar</h1>
-    <div class="article-subtitle">full-stack developer and freelance software consultant</div>
+    <div class="article-subtitle" data-i18n="subtitle">full-stack developer and freelance software consultant</div>
 
     <div class="infobox">
       <div class="infobox-title">Dishant Panjiyar</div>
-      <div class="infobox-subtitle">Full-Stack Developer</div>
-      <div class="infobox-image">[ photo placeholder ]</div>
-      <div class="infobox-caption">Panjiyar, freelance developer, Kathmandu</div>
+      <div class="infobox-subtitle" data-i18n="infoSubtitle">Full-Stack Developer</div>
+      <div class="infobox-image" data-i18n="infoPhoto">[ photo placeholder ]</div>
+      <div class="infobox-caption" data-i18n="infoCaption">Panjiyar, freelance developer, Kathmandu</div>
       <table>
-        <tr><th>Born</th><td>Bardaghat, Nawalparasi, Nepal</td></tr>
-        <tr><th>Residence</th><td>Kathmandu, Nepal</td></tr>
-        <tr><th>Education</th><td>BSc (Hons) Computing — Islington College, Kamalpokhari, Kathmandu</td></tr>
-        <tr><th>Occupation</th><td>Freelance full-stack developer</td></tr>
-        <tr><th>Years active</th><td><span>2025 August</span> – present</td></tr>
-        <tr><th>Known for</th><td>KTM Transit; APD dealership platform; enterprise POS &amp; inventory systems</td></tr>
-        <tr><th>Website</th><td><span><a href="https://dishantpanjiyar.com.np" target="_blank" rel="noopener">dishantpanjiyar.com.np</a></span></td></tr>
+        <tr><th data-i18n="infoBorn">Born</th><td data-i18n="infoBornVal">Bardaghat, Nawalparasi, Nepal</td></tr>
+        <tr><th data-i18n="infoResidence">Residence</th><td data-i18n="infoResidenceVal">Kathmandu, Nepal</td></tr>
+        <tr><th data-i18n="infoEducation">Education</th><td data-i18n="infoEducationVal">BSc (Hons) Computing — Islington College, Kamalpokhari, Kathmandu</td></tr>
+        <tr><th data-i18n="infoOccupation">Occupation</th><td data-i18n="infoOccupationVal">Freelance full-stack developer</td></tr>
+        <tr><th data-i18n="infoYears">Years active</th><td><span data-i18n="infoYearsVal">2025 August</span> <span data-i18n="infoPresent">– present</span></td></tr>
+        <tr><th data-i18n="infoKnown">Known for</th><td data-i18n="infoKnownVal">KTM Transit; APD dealership platform; enterprise POS &amp; inventory systems</td></tr>
+        <tr><th>Website</th><td><a href="https://dishantpanjiyar.com.np" target="_blank" rel="noopener">dishantpanjiyar.com.np</a></td></tr>
         <tr><th>GitHub</th><td><a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener">github.com/dishantpanjiyar</a></td></tr>
         <tr><th>LinkedIn</th><td><a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">linkedin.com/in/dishant-panjiyar</a></td></tr>
       </table>
     </div>
 
-    <p>
+    <p data-i18n="introP1">
       <strong>Dishant Panjiyar</strong> is a full-stack software developer and freelance
       consultant based in Kathmandu, Nepal. A recent graduate with a BSc (Hons) in
       Computing, he works primarily on web application development, spanning both
@@ -492,7 +483,7 @@
       point-of-sale and inventory management systems for small and medium
       businesses.<sup class="cite"><a href="#ref1" id="cite1">[1]</a></sup>
     </p>
-    <p>
+    <p data-i18n="introP2">
       Beyond development, Panjiyar has experience in client handling, social media
       management, and graphic design, and has served as project manager on several
       of his own projects, allocating and dividing tasks across
@@ -502,27 +493,27 @@
     </p>
 
     <div class="toc" id="contents">
-      <div class="toc-title">Contents</div>
+      <div class="toc-title" data-i18n="tocTitle">Contents</div>
       <ol>
-        <li><a href="#early-life"><span class="toc-num">1</span>Early life and education</a></li>
-        <li><a href="#career"><span class="toc-num">2</span>Career</a></li>
-        <li><a href="#projects"><span class="toc-num">3</span>Notable projects</a>
+        <li><a href="#early-life"><span class="toc-num">1</span><span data-i18n="tocEarly">Early life and education</span></a></li>
+        <li><a href="#career"><span class="toc-num">2</span><span data-i18n="tocCareer">Career</span></a></li>
+        <li><a href="#projects"><span class="toc-num">3</span><span data-i18n="tocProjects">Notable projects</span></a>
           <ol>
-            <li><a href="#proj-apd"><span class="toc-num">3.1</span>APD — Auto Parts Dealership Platform</a></li>
-            <li><a href="#proj-ktm"><span class="toc-num">3.2</span>KTM Transit</a></li>
-            <li><a href="#proj-math"><span class="toc-num">3.3</span>Applied math modeling</a></li>
-            <li><a href="#proj-other"><span class="toc-num">3.4</span>Other projects</a></li>
+            <li><a href="#proj-apd"><span class="toc-num">3.1</span><span data-i18n="tocApd">APD — Auto Parts Dealership Platform</span></a></li>
+            <li><a href="#proj-ktm"><span class="toc-num">3.2</span><span data-i18n="tocKtm">KTM Transit</span></a></li>
+            <li><a href="#proj-math"><span class="toc-num">3.3</span><span data-i18n="tocMath">Applied math modeling</span></a></li>
+            <li><a href="#proj-other"><span class="toc-num">3.4</span><span data-i18n="tocOther">Other projects</span></a></li>
           </ol>
         </li>
-        <li><a href="#skills"><span class="toc-num">4</span>Skills</a></li>
-        <li><a href="#see-also"><span class="toc-num">5</span>See also</a></li>
-        <li><a href="#references"><span class="toc-num">6</span>References</a></li>
-        <li><a href="#external"><span class="toc-num">7</span>External links</a></li>
+        <li><a href="#skills"><span class="toc-num">4</span><span data-i18n="tocSkills">Skills</span></a></li>
+        <li><a href="#see-also"><span class="toc-num">5</span><span data-i18n="tocSeeAlso">See also</span></a></li>
+        <li><a href="#references"><span class="toc-num">6</span><span data-i18n="tocRefs">References</span></a></li>
+        <li><a href="#external"><span class="toc-num">7</span><span data-i18n="tocExternal">External links</span></a></li>
       </ol>
     </div>
 
-    <h2 id="early-life">Early life and education<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
-    <p>
+    <h2 id="early-life"><span data-i18n="hEarly">Early life and education</span><span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span></h2>
+    <p data-i18n="earlyP1">
       Panjiyar was born in Bardaghat, Nawalparasi, Nepal. He completed his
       secondary education at Nepal APF Secondary School in Kirtipur, Kathmandu,
       followed by his +2 (higher secondary) studies at GoldenGate International
@@ -531,17 +522,17 @@
       Kamalpokhari, Kathmandu, graduating as a recent graduate of the program.
     </p>
 
-    <h2 id="career">Career<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
-    <p>
+    <h2 id="career"><span data-i18n="hCareer">Career</span><span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span></h2>
+    <p data-i18n="careerP1">
       After completing an internship at Insource Inc Pvt Ltd, where he worked on .net and SQL-based projects for clients with POS and inventory management needs, with a focus on back-end development, and gaining experience in client communication and project management, with a focus on delivering solutions that met client requirements, and also worked in feature development and bug fixing, Panjiyar began working part-time as a freelance developer, taking on full-stack web development projects for clients across several industries.<sup class="cite"><a href="#ref1" id="cite1a">[1]</a></sup> His
       freelance work has included e-commerce websites, transit-mapping tools, and
       management systems for restaurants, cafes, clinics, labs, and pharmacies.
     </p>
 
-    <h2 id="projects">Notable projects<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <h2 id="projects"><span data-i18n="hProjects">Notable projects</span><span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span></h2>
 
-    <h3 id="proj-apd">APD — Auto Parts Dealership Platform</h3>
-    <p>
+    <h3 id="proj-apd" data-i18n="tocApd">APD — Auto Parts Dealership Platform</h3>
+    <p data-i18n="apdP1">
       A full dealership management system built around an ASP.NET Core Web API
       backend and a React/Vite frontend, using PostgreSQL through Entity
       Framework Core.<sup class="cite"><a href="#ref1" id="cite1c">[1]</a></sup>
@@ -552,8 +543,8 @@
       validation via react-hook-form and Zod.
     </p>
 
-    <h3 id="proj-ktm">KTM Transit</h3>
-    <p>
+    <h3 id="proj-ktm" data-i18n="tocKtm">KTM Transit</h3>
+    <p data-i18n="ktmP1">
       A progressive web app that helps riders plan bus journeys across the
       Kathmandu Valley, developed as a FYP(final year project) at Islington College.<sup class="cite"><a href="#ref1" id="cite1d">[1]</a></sup>
       The app functions offline using IndexedDB and a service worker, renders
@@ -562,8 +553,8 @@
       storage and authentication.
     </p>
 
-    <h3 id="proj-math">Applied math modeling</h3>
-    <p>
+    <h3 id="proj-math" data-i18n="tocMath">Applied math modeling</h3>
+    <p data-i18n="mathP1">
       Fitted exponential growth models to Nepal's GDP (World Bank, 2000–2023)
       and population (1960–2023) figures, evaluating fit quality using R²
       values and documenting interpolation, extrapolation, and the
@@ -572,8 +563,8 @@
       interactive visualization.
     </p>
 
-    <h3 id="proj-other">Other projects</h3>
-    <p>
+    <h3 id="proj-other" data-i18n="tocOther">Other projects</h3>
+    <p data-i18n="otherP1">
       Panjiyar has also built management systems for cafes and restaurants
       (sales, billing, table booking, inventory, and vendor orders), a lab
       and pharmacy management system (vendor sales, profit/loss tracking,
@@ -583,61 +574,61 @@
     </p>
 
     <table class="wikitable">
-      <tr><th>Project</th><th>Stack</th><th>Role</th></tr>
-      <tr><td>APD — Auto Parts Dealership Platform</td><td>ASP.NET Core, React, PostgreSQL, EF Core</td><td>Full-stack developer</td></tr>
-      <tr><td>KTM Transit</td><td>Leaflet.js, Supabase, IndexedDB, OSRM</td><td>Full-stack developer</td></tr>
-      <tr><td>Applied math modeling</td><td>Desmos, regression analysis</td><td>Author</td></tr>
-      <tr><td>Café Management System</td><td>.NET, SQL</td><td>Developer</td></tr>
-      <tr><td>Lab &amp; Pharmacy Management System</td><td>.NET, SQL</td><td>Developer</td></tr>
-      <tr><td>E-commerce Website</td><td>HTML, CSS, JavaScript</td><td>Developer</td></tr>
-      <tr><td>Movie Recommendation Model</td><td>Python, machine learning</td><td>Developer</td></tr>
+      <tr><th data-i18n="tblProject">Project</th><th data-i18n="tblStack">Stack</th><th data-i18n="tblRole">Role</th></tr>
+      <tr><td data-i18n="tocApd">APD — Auto Parts Dealership Platform</td><td>ASP.NET Core, React, PostgreSQL, EF Core</td><td data-i18n="roleFullstack">Full-stack developer</td></tr>
+      <tr><td data-i18n="tocKtm">KTM Transit</td><td>Leaflet.js, Supabase, IndexedDB, OSRM</td><td data-i18n="roleFullstack">Full-stack developer</td></tr>
+      <tr><td data-i18n="tocMath">Applied math modeling</td><td data-i18n="stackDesmos">Desmos, regression analysis</td><td data-i18n="roleAuthor">Author</td></tr>
+      <tr><td data-i18n="projCafe">Café Management System</td><td>.NET, SQL</td><td data-i18n="roleDev">Developer</td></tr>
+      <tr><td data-i18n="projLab">Lab &amp; Pharmacy Management System</td><td>.NET, SQL</td><td data-i18n="roleDev">Developer</td></tr>
+      <tr><td data-i18n="projEcom">E-commerce Website</td><td>HTML, CSS, JavaScript</td><td data-i18n="roleDev">Developer</td></tr>
+      <tr><td data-i18n="projMovie">Movie Recommendation Model</td><td data-i18n="stackPython">Python, machine learning</td><td data-i18n="roleDev">Developer</td></tr>
     </table>
 
-    <h2 id="skills">Skills<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
-    <p>
+    <h2 id="skills"><span data-i18n="hSkills">Skills</span><span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span></h2>
+    <p data-i18n="skillsP1">
       Panjiyar's technical background spans backend architecture, frontend
       engineering, and applied data analysis, developed through coursework
       and independent project work.
     </p>
     <table class="wikitable">
-      <tr><th>Area</th><th>Tools &amp; concepts</th></tr>
-      <tr><td>Backend</td><td>ASP.NET Core, C#, Dapper, Entity Framework Core</td></tr>
-      <tr><td>Frontend</td><td>React, Vite, Tailwind CSS, jQuery</td></tr>
-      <tr><td>Data</td><td>PostgreSQL, Supabase, SQL</td></tr>
-      <tr><td>Core concepts</td><td>Dependency injection, async/await, REST, CORS</td></tr>
-      <tr><td>Modeling &amp; analysis</td><td>Regression, Desmos, statistics</td></tr>
-      <tr><td>Tooling</td><td>Git, IIS Express, database migrations</td></tr>
-      <tr><td>Professional</td><td>Project management, client communication, social media management, graphic design</td></tr>
+      <tr><th data-i18n="tblArea">Area</th><th data-i18n="tblTools">Tools &amp; concepts</th></tr>
+      <tr><td data-i18n="areaBackend">Backend</td><td>ASP.NET Core, C#, Dapper, Entity Framework Core</td></tr>
+      <tr><td data-i18n="areaFrontend">Frontend</td><td>React, Vite, Tailwind CSS, jQuery</td></tr>
+      <tr><td data-i18n="areaData">Data</td><td>PostgreSQL, Supabase, SQL</td></tr>
+      <tr><td data-i18n="areaCore">Core concepts</td><td data-i18n="coreVal">Dependency injection, async/await, REST, CORS</td></tr>
+      <tr><td data-i18n="areaModeling">Modeling &amp; analysis</td><td data-i18n="modelingVal">Regression, Desmos, statistics</td></tr>
+      <tr><td data-i18n="areaTooling">Tooling</td><td data-i18n="toolingVal">Git, IIS Express, database migrations</td></tr>
+      <tr><td data-i18n="areaProfessional">Professional</td><td data-i18n="professionalVal">Project management, client communication, social media management, graphic design</td></tr>
     </table>
 
-    <h2 id="see-also">See also<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <h2 id="see-also"><span data-i18n="hSeeAlso">See also</span><span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span></h2>
     <ul class="plain-list">
-      <li><a href="#" class="new">List of public transit mapping projects</a></li>
-      <li><a href="#" class="new">Point-of-sale software</a></li>
+      <li><a href="#" class="new" data-i18n="seeAlso1">List of public transit mapping projects</a></li>
+      <li><a href="#" class="new" data-i18n="seeAlso2">Point-of-sale software</a></li>
     </ul>
 
-    <h2 id="references">References<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <h2 id="references"><span data-i18n="hRefs">References</span><span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span></h2>
     <ol class="references">
-      <li id="ref1"><a href="#cite1" class="back-ref">^</a> Panjiyar, Dishant. GitHub profile. <a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener">github.com/dishantpanjiyar</a>.</li>
-      <li id="ref2"><a href="#cite2" class="back-ref">^</a> Panjiyar, Dishant. LinkedIn profile. <a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">linkedin.com/in/dishant-panjiyar</a>.</li>
-      <li id="ref3"><a href="#cite3" class="back-ref">^</a> Nepal APF Secondary School, Kirtipur; GoldenGate International College, Old Baneshwor — school records.</li>
+      <li id="ref1"><a href="#cite1" class="back-ref">^</a> <span data-i18n="ref1">Panjiyar, Dishant. GitHub profile.</span> <a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener">github.com/dishantpanjiyar</a>.</li>
+      <li id="ref2"><a href="#cite2" class="back-ref">^</a> <span data-i18n="ref2">Panjiyar, Dishant. LinkedIn profile.</span> <a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">linkedin.com/in/dishant-panjiyar</a>.</li>
+      <li id="ref3"><a href="#cite3" class="back-ref">^</a> <span data-i18n="ref3">Nepal APF Secondary School, Kirtipur; GoldenGate International College, Old Baneshwor — school records.</span></li>
     </ol>
 
-    <h2 id="external">External links<span class="edit-link"><a href="#" onclick="showTip(event)">edit</a></span></h2>
+    <h2 id="external"><span data-i18n="hExternal">External links</span><span class="edit-link"><a href="#" onclick="showTip(event)" data-i18n="edit">edit</a></span></h2>
     <ul class="plain-list">
-      <li><a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener">GitHub profile</a></li>
-      <li><a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener">LinkedIn profile</a></li>
+      <li><a href="https://github.com/dishantpanjiyar" target="_blank" rel="noopener" data-i18n="extGithub">GitHub profile</a></li>
+      <li><a href="https://www.linkedin.com/in/dishant-panjiyar-2774b2303/" target="_blank" rel="noopener" data-i18n="extLinkedin">LinkedIn profile</a></li>
     </ul>
 
     <div class="clearfix"></div>
 
     <div class="catlinks">
-      <strong>Categories:</strong>
-      <a href="#">Software engineers</a> ·
-      <a href="#">Freelance developers</a> ·
-      <a href="#">People from Nawalparasi District</a> ·
-      <a href="#">Living people</a> ·
-      <a href="#">Islington College alumni</a>
+      <strong data-i18n="categories">Categories:</strong>
+      <a href="#" data-i18n="catSwe">Software engineers</a> ·
+      <a href="#" data-i18n="catFreelance">Freelance developers</a> ·
+      <a href="#" data-i18n="catPeople">People from Nawalparasi District</a> ·
+      <a href="#" data-i18n="catLiving">Living people</a> ·
+      <a href="#" data-i18n="catAlumni">Islington College alumni</a>
     </div>
 
   </div>
@@ -645,48 +636,571 @@
 
 <div class="site-footer">
   <hr>
-  This page was last edited on 5 July 2026, at 09:14 (UTC). This is a personal
+  <span data-i18n="footer">This page was last edited on 5 July 2026, at 09:14 (UTC). This is a personal
   portfolio page styled after Wikipedia; it is not affiliated with the
-  Wikimedia Foundation.
+  Wikimedia Foundation.</span>
   <br><br>
-  Privacy policy · About "Wikipedia" · Disclaimers · Contact
+  <span data-i18n="footerLinks">Privacy policy · About "Wikipedia" · Disclaimers · Contact</span>
 </div>
 
-<div class="edit-tip" id="editTip">editing is disabled ✏️</div>
+<div class="edit-tip" id="editTip" data-i18n="editDisabled">editing is disabled ✏️</div>
 
 <script>
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function(e){
-      const targetId = this.getAttribute('href').slice(1);
-      const target = document.getElementById(targetId);
-      if(target){
-        e.preventDefault();
-        target.scrollIntoView({behavior:'smooth', block:'center'});
-        if(target.tagName === 'LI'){
-          target.classList.add('highlight');
-          setTimeout(()=> target.classList.remove('highlight'), 1600);
-        }
+const translations = {
+  en: {
+    pageTitle: "Dishant Panjiyar - Wikipedia",
+    tagline: "The Free Portfolio",
+    searchPlaceholder: "Search Wikipedia",
+    navNavigation: "Navigation",
+    navMain: "Main page", navContents: "Contents", navCurrent: "Current events",
+    navRandom: "Random article", navAbout: "About Wikipedia", navContact: "Contact us",
+    navContribute: "Contribute", navHelp: "Help", navLearn: "Learn to edit",
+    navCommunity: "Community portal", navRecent: "Recent changes", navUpload: "Upload file",
+    navTools: "Tools", navWhatLinks: "What links here", navRelated: "Related changes",
+    navSpecial: "Special pages", navCite: "Cite this page", navDownload: "Download as PDF",
+    navLanguages: "Languages",
+    edit: "edit", viewHistory: "view history",
+    subtitle: "full-stack developer and freelance software consultant",
+    infoSubtitle: "Full-Stack Developer",
+    infoPhoto: "[ photo placeholder ]",
+    infoCaption: "Panjiyar, freelance developer, Kathmandu",
+    infoBorn: "Born", infoBornVal: "Bardaghat, Nawalparasi, Nepal",
+    infoResidence: "Residence", infoResidenceVal: "Kathmandu, Nepal",
+    infoEducation: "Education", infoEducationVal: "BSc (Hons) Computing — Islington College, Kamalpokhari, Kathmandu",
+    infoOccupation: "Occupation", infoOccupationVal: "Freelance full-stack developer",
+    infoYears: "Years active", infoYearsVal: "2025 August", infoPresent: "– present",
+    infoKnown: "Known for", infoKnownVal: "KTM Transit; APD dealership platform; enterprise POS &amp; inventory systems",
+    introP1: `<strong>Dishant Panjiyar</strong> is a full-stack software developer and freelance
+      consultant based in Kathmandu, Nepal. A recent graduate with a BSc (Hons) in
+      Computing, he works primarily on web application development, spanning both
+      front-end and back-end systems, and has delivered enterprise software including
+      point-of-sale and inventory management systems for small and medium
+      businesses.<sup class="cite"><a href="#ref1" id="cite1">[1]</a></sup>`,
+    introP2: `Beyond development, Panjiyar has experience in client handling, social media
+      management, and graphic design, and has served as project manager on several
+      of his own projects, allocating and dividing tasks across
+      teams.<sup class="cite"><a href="#ref2" id="cite2">[2]</a></sup> He has also
+      experimented with machine learning, training a movie recommendation and
+      rating model on user reviews and critic scores.`,
+    tocTitle: "Contents",
+    tocEarly: "Early life and education", tocCareer: "Career", tocProjects: "Notable projects",
+    tocApd: "APD — Auto Parts Dealership Platform", tocKtm: "KTM Transit",
+    tocMath: "Applied math modeling", tocOther: "Other projects",
+    tocSkills: "Skills", tocSeeAlso: "See also", tocRefs: "References", tocExternal: "External links",
+    hEarly: "Early life and education",
+    earlyP1: `Panjiyar was born in Bardaghat, Nawalparasi, Nepal. He completed his
+      secondary education at Nepal APF Secondary School in Kirtipur, Kathmandu,
+      followed by his +2 (higher secondary) studies at GoldenGate International
+      College in Old Baneshwor, Kathmandu.<sup class="cite"><a href="#ref3" id="cite3">[3]</a></sup>
+      He went on to earn a BSc (Hons) in Computing from Islington College in
+      Kamalpokhari, Kathmandu, graduating as a recent graduate of the program.`,
+    hCareer: "Career",
+    careerP1: `After completing an internship at Insource Inc Pvt Ltd, where he worked on .net and SQL-based projects for clients with POS and inventory management needs, with a focus on back-end development, and gaining experience in client communication and project management, with a focus on delivering solutions that met client requirements, and also worked in feature development and bug fixing, Panjiyar began working part-time as a freelance developer, taking on full-stack web development projects for clients across several industries.<sup class="cite"><a href="#ref1" id="cite1a">[1]</a></sup> His
+      freelance work has included e-commerce websites, transit-mapping tools, and
+      management systems for restaurants, cafes, clinics, labs, and pharmacies.`,
+    hProjects: "Notable projects",
+    apdP1: `A full dealership management system built around an ASP.NET Core Web API
+      backend and a React/Vite frontend, using PostgreSQL through Entity
+      Framework Core.<sup class="cite"><a href="#ref1" id="cite1c">[1]</a></sup>
+      The backend covers dependency injection and EF Core patterns such as
+      eager loading, soft delete, and DTO mapping, alongside async data flows
+      and CORS configuration. The frontend implements a master-detail fetch
+      pattern with optimistic UI updates, Base64 image uploads, and form
+      validation via react-hook-form and Zod.`,
+    ktmP1: `A progressive web app that helps riders plan bus journeys across the
+      Kathmandu Valley, developed as a FYP(final year project) at Islington College.<sup class="cite"><a href="#ref1" id="cite1d">[1]</a></sup>
+      The app functions offline using IndexedDB and a service worker, renders
+      maps with Leaflet.js and OpenStreetMap data, geocodes locations with
+      Nominatim, and calculates routes with OSRM, backed by Supabase for data
+      storage and authentication.`,
+    mathP1: `Fitted exponential growth models to Nepal's GDP (World Bank, 2000–2023)
+      and population (1960–2023) figures, evaluating fit quality using R²
+      values and documenting interpolation, extrapolation, and the
+      limitations of each model. A related project solved a
+      supply-and-demand equilibrium problem both algebraically and through an
+      interactive visualization.`,
+    otherP1: `Panjiyar has also built management systems for cafes and restaurants
+      (sales, billing, table booking, inventory, and vendor orders), a lab
+      and pharmacy management system (vendor sales, profit/loss tracking,
+      medicine inventory, patient card booking, and digital patient records),
+      an e-commerce website, and a movie recommendation model trained on user
+      reviews and critic ratings.`,
+    tblProject: "Project", tblStack: "Stack", tblRole: "Role",
+    roleFullstack: "Full-stack developer", roleAuthor: "Author", roleDev: "Developer",
+    stackDesmos: "Desmos, regression analysis", stackPython: "Python, machine learning",
+    projCafe: "Café Management System", projLab: "Lab &amp; Pharmacy Management System",
+    projEcom: "E-commerce Website", projMovie: "Movie Recommendation Model",
+    hSkills: "Skills",
+    skillsP1: `Panjiyar's technical background spans backend architecture, frontend
+      engineering, and applied data analysis, developed through coursework
+      and independent project work.`,
+    tblArea: "Area", tblTools: "Tools &amp; concepts",
+    areaBackend: "Backend", areaFrontend: "Frontend", areaData: "Data",
+    areaCore: "Core concepts", coreVal: "Dependency injection, async/await, REST, CORS",
+    areaModeling: "Modeling &amp; analysis", modelingVal: "Regression, Desmos, statistics",
+    areaTooling: "Tooling", toolingVal: "Git, IIS Express, database migrations",
+    areaProfessional: "Professional", professionalVal: "Project management, client communication, social media management, graphic design",
+    hSeeAlso: "See also",
+    seeAlso1: "List of public transit mapping projects", seeAlso2: "Point-of-sale software",
+    hRefs: "References",
+    ref1: "Panjiyar, Dishant. GitHub profile.",
+    ref2: "Panjiyar, Dishant. LinkedIn profile.",
+    ref3: "Nepal APF Secondary School, Kirtipur; GoldenGate International College, Old Baneshwor — school records.",
+    hExternal: "External links",
+    extGithub: "GitHub profile", extLinkedin: "LinkedIn profile",
+    categories: "Categories:",
+    catSwe: "Software engineers", catFreelance: "Freelance developers",
+    catPeople: "People from Nawalparasi District", catLiving: "Living people",
+    catAlumni: "Islington College alumni",
+    footer: `This page was last edited on 5 July 2026, at 09:14 (UTC). This is a personal
+  portfolio page styled after Wikipedia; it is not affiliated with the
+  Wikimedia Foundation.`,
+    footerLinks: `Privacy policy · About "Wikipedia" · Disclaimers · Contact`,
+    editDisabled: "editing is disabled ✏️"
+  },
+
+  ne: {
+    pageTitle: "दिशान्त पन्जियार - विकिपिडिया",
+    tagline: "स्वतन्त्र पोर्टफोलियो",
+    searchPlaceholder: "विकिपिडियामा खोज्नुहोस्",
+    navNavigation: "नेभिगेसन",
+    navMain: "मुख्य पृष्ठ", navContents: "विषयसूची", navCurrent: "हालका घटनाहरू",
+    navRandom: "अनियमित लेख", navAbout: "विकिपिडियाको बारेमा", navContact: "सम्पर्क गर्नुहोस्",
+    navContribute: "योगदान दिनुहोस्", navHelp: "मद्दत", navLearn: "सम्पादन सिक्नुहोस्",
+    navCommunity: "सामुदायिक पोर्टल", navRecent: "हालका परिवर्तनहरू", navUpload: "फाइल अपलोड गर्नुहोस्",
+    navTools: "औजारहरू", navWhatLinks: "यहाँ लिङ्क गर्ने पृष्ठहरू", navRelated: "सम्बन्धित परिवर्तनहरू",
+    navSpecial: "विशेष पृष्ठहरू", navCite: "यो पृष्ठ उद्धृत गर्नुहोस्", navDownload: "PDF को रूपमा डाउनलोड गर्नुहोस्",
+    navLanguages: "भाषाहरू",
+    edit: "सम्पादन", viewHistory: "इतिहास हेर्नुहोस्",
+    subtitle: "पूर्ण-स्ट्याक विकासकर्ता र स्वतन्त्र सफ्टवेयर परामर्शदाता",
+    infoSubtitle: "पूर्ण-स्ट्याक विकासकर्ता",
+    infoPhoto: "[ फोटो स्थानधारक ]",
+    infoCaption: "पन्जियार, स्वतन्त्र विकासकर्ता, काठमाडौं",
+    infoBorn: "जन्म", infoBornVal: "बर्दघाट, नवलपरासी, नेपाल",
+    infoResidence: "बसोबास", infoResidenceVal: "काठमाडौं, नेपाल",
+    infoEducation: "शिक्षा", infoEducationVal: "बीएससी (अनर्स) कम्प्युटिङ — इस्लिङ्टन कलेज, कमलपोखरी, काठमाडौं",
+    infoOccupation: "पेशा", infoOccupationVal: "स्वतन्त्र पूर्ण-स्ट्याक विकासकर्ता",
+    infoYears: "सक्रिय वर्षहरू", infoYearsVal: "२०२५ अगस्ट", infoPresent: "– हालसम्म",
+    infoKnown: "परिचित", infoKnownVal: "KTM ट्रान्जिट; APD डिलरसिप प्लेटफर्म; उद्यम POS र इन्भेन्टरी प्रणालीहरू",
+    introP1: `<strong>दिशान्त पन्जियार</strong> काठमाडौं, नेपालमा आधारित एक पूर्ण-स्ट्याक
+      सफ्टवेयर विकासकर्ता र स्वतन्त्र परामर्शदाता हुन्। कम्प्युटिङमा बीएससी (अनर्स)
+      डिग्री पूरा गरेका हालैका स्नातक, उनी मुख्यतया वेब अनुप्रयोग विकासमा काम गर्छन्,
+      जसले फ्रन्ट-एन्ड र ब्याक-एन्ड दुवै प्रणालीहरू समेट्छ, र साना तथा मझौला
+      व्यवसायहरूका लागि पोइन्ट-अफ-सेल र इन्भेन्टरी व्यवस्थापन प्रणालीहरू लगायत
+      उद्यम सफ्टवेयर पुर्‍याएका छन्।<sup class="cite"><a href="#ref1" id="cite1">[१]</a></sup>`,
+    introP2: `विकाससँगै, पन्जियारसँग ग्राहक व्यवस्थापन, सामाजिक सञ्जाल व्यवस्थापन, र
+      ग्राफिक डिजाइनको अनुभव पनि छ, र उनले आफ्नै धेरै परियोजनाहरूमा परियोजना
+      व्यवस्थापकको रूपमा काम गरेका छन्, टोलीहरूमा कार्यहरू विभाजन र
+      बाँडफाँड गर्दै।<sup class="cite"><a href="#ref2" id="cite2">[२]</a></sup> उनले
+      मेसिन लर्निङमा पनि प्रयोग गरेका छन्, प्रयोगकर्ता समीक्षा र समालोचक स्कोरहरूमा
+      आधारित एउटा फिल्म सिफारिस र मूल्याङ्कन मोडेल तालिम दिँदै।`,
+    tocTitle: "विषयसूची",
+    tocEarly: "प्रारम्भिक जीवन र शिक्षा", tocCareer: "करियर", tocProjects: "उल्लेखनीय परियोजनाहरू",
+    tocApd: "APD — अटो पार्ट्स डिलरसिप प्लेटफर्म", tocKtm: "KTM ट्रान्जिट",
+    tocMath: "व्यावहारिक गणित मोडेलिङ", tocOther: "अन्य परियोजनाहरू",
+    tocSkills: "सीपहरू", tocSeeAlso: "यो पनि हेर्नुहोस्", tocRefs: "सन्दर्भहरू", tocExternal: "बाह्य लिङ्कहरू",
+    hEarly: "प्रारम्भिक जीवन र शिक्षा",
+    earlyP1: `पन्जियारको जन्म बर्दघाट, नवलपरासी, नेपालमा भएको थियो। उनले काठमाडौंको
+      कीर्तिपुरस्थित नेपाल एपीएफ माध्यमिक विद्यालयबाट माध्यमिक शिक्षा पूरा गरे,
+      त्यसपछि काठमाडौंको पुरानो बानेश्वरस्थित गोल्डेनगेट इन्टरनेशनल कलेजबाट
+      +२ (उच्च माध्यमिक) अध्ययन गरे।<sup class="cite"><a href="#ref3" id="cite3">[३]</a></sup>
+      उनले काठमाडौंको कमलपोखरीस्थित इस्लिङ्टन कलेजबाट कम्प्युटिङमा बीएससी
+      (अनर्स) प्राप्त गरे, कार्यक्रमका हालैका स्नातकको रूपमा उत्तीर्ण भए।`,
+    hCareer: "करियर",
+    careerP1: `इनसोर्स इंक प्रा.लि.मा इन्टर्नशिप पूरा गरेपछि, जहाँ उनले POS र इन्भेन्टरी
+      व्यवस्थापन आवश्यकता भएका ग्राहकहरूका लागि .net र SQL-आधारित परियोजनाहरूमा
+      काम गरे, ब्याक-एन्ड विकासमा ध्यान केन्द्रित गर्दै, र ग्राहक सञ्चार र
+      परियोजना व्यवस्थापनमा अनुभव प्राप्त गर्दै, ग्राहकका आवश्यकताहरू पूरा गर्ने
+      समाधानहरू पुर्‍याउनमा ध्यान दिँदै, र सुविधा विकास र बग समाधानमा पनि काम गरे,
+      पन्जियारले स्वतन्त्र विकासकर्ताको रूपमा अंशकालिक काम सुरु गरे, विभिन्न
+      उद्योगका ग्राहकहरूका लागि पूर्ण-स्ट्याक वेब विकास परियोजनाहरू लिँदै।<sup class="cite"><a href="#ref1" id="cite1a">[१]</a></sup>
+      उनको स्वतन्त्र कामले ई-कमर्स वेबसाइटहरू, ट्रान्जिट-म्यापिङ उपकरणहरू, र
+      रेस्टुरेन्ट, क्याफे, क्लिनिक, प्रयोगशाला, र फार्मेसीहरूका लागि व्यवस्थापन
+      प्रणालीहरू समेटेको छ।`,
+    hProjects: "उल्लेखनीय परियोजनाहरू",
+    apdP1: `ASP.NET Core Web API ब्याकएन्ड र React/Vite फ्रन्टएन्डको वरिपरि निर्मित
+      एउटा पूर्ण डिलरसिप व्यवस्थापन प्रणाली, Entity Framework Core मार्फत
+      PostgreSQL प्रयोग गर्दै।<sup class="cite"><a href="#ref1" id="cite1c">[१]</a></sup>
+      ब्याकएन्डले डिपेन्डेन्सी इन्जेक्सन र EF Core ढाँचाहरू जस्तै इगर लोडिङ,
+      सफ्ट डिलिट, र DTO म्यापिङ, साथै एसिंक डाटा फ्लो र CORS कन्फिगुरेसन समेट्छ।
+      फ्रन्टएन्डले अप्टिमिस्टिक UI अपडेट, Base64 छवि अपलोड, र react-hook-form
+      र Zod मार्फत फारम प्रमाणीकरण सहितको मास्टर-डिटेल फेच ढाँचा लागू गर्छ।`,
+    ktmP1: `काठमाडौं उपत्यकाभर बस यात्रा योजना बनाउन यात्रुहरूलाई मद्दत गर्ने एउटा
+      प्रगतिशील वेब एप, जुन इस्लिङ्टन कलेजमा अन्तिम वर्ष परियोजना (FYP) को
+      रूपमा विकसित गरिएको हो।<sup class="cite"><a href="#ref1" id="cite1d">[१]</a></sup>
+      एपले IndexedDB र सर्भिस वर्कर प्रयोग गरी अफलाइन काम गर्छ, Leaflet.js र
+      OpenStreetMap डाटाको साथ नक्सा प्रस्तुत गर्छ, Nominatim को साथ स्थानहरू
+      जिओकोड गर्छ, र OSRM को साथ मार्गहरू गणना गर्छ, डाटा भण्डारण र प्रमाणीकरणका
+      लागि Supabase द्वारा समर्थित।`,
+    mathP1: `नेपालको GDP (विश्व बैंक, २०००–२०२३) र जनसंख्या (१९६०–२०२३) आँकडाहरूमा
+      घातीय वृद्धि मोडेलहरू फिट गरियो, R² मानहरू प्रयोग गरी फिट गुणस्तरको
+      मूल्याङ्कन गरियो र प्रत्येक मोडेलको इन्टरपोलेसन, एक्स्ट्रापोलेसन, र
+      सीमाहरू कागजात गरियो। एउटा सम्बन्धित परियोजनाले आपूर्ति र माग सन्तुलन
+      समस्यालाई बीजगणितीय रूपमा र अन्तरक्रियात्मक भिजुअलाइजेसन मार्फत दुवै
+      तरिकाले समाधान गर्‍यो।`,
+    otherP1: `पन्जियारले क्याफे र रेस्टुरेन्टहरूका लागि व्यवस्थापन प्रणालीहरू (बिक्री,
+      बिलिङ, टेबल बुकिङ, इन्भेन्टरी, र वेन्डर अर्डरहरू), एउटा प्रयोगशाला र
+      फार्मेसी व्यवस्थापन प्रणाली (वेन्डर बिक्री, नाफा/नोक्सान ट्र्याकिङ, औषधि
+      इन्भेन्टरी, बिरामी कार्ड बुकिङ, र डिजिटल बिरामी रेकर्ड), एउटा ई-कमर्स
+      वेबसाइट, र प्रयोगकर्ता समीक्षा र समालोचक मूल्याङ्कनमा तालिम प्राप्त एउटा
+      फिल्म सिफारिस मोडेल पनि बनाएका छन्।`,
+    tblProject: "परियोजना", tblStack: "स्ट्याक", tblRole: "भूमिका",
+    roleFullstack: "पूर्ण-स्ट्याक विकासकर्ता", roleAuthor: "लेखक", roleDev: "विकासकर्ता",
+    stackDesmos: "Desmos, रिग्रेसन विश्लेषण", stackPython: "Python, मेसिन लर्निङ",
+    projCafe: "क्याफे व्यवस्थापन प्रणाली", projLab: "प्रयोगशाला र फार्मेसी व्यवस्थापन प्रणाली",
+    projEcom: "ई-कमर्स वेबसाइट", projMovie: "फिल्म सिफारिस मोडेल",
+    hSkills: "सीपहरू",
+    skillsP1: `पन्जियारको प्राविधिक पृष्ठभूमिले ब्याकएन्ड आर्किटेक्चर, फ्रन्टएन्ड
+      इन्जिनियरिङ, र व्यावहारिक डाटा विश्लेषण समेट्छ, पाठ्यक्रम र स्वतन्त्र
+      परियोजना कार्य मार्फत विकसित गरिएको।`,
+    tblArea: "क्षेत्र", tblTools: "उपकरण र अवधारणाहरू",
+    areaBackend: "ब्याकएन्ड", areaFrontend: "फ्रन्टएन्ड", areaData: "डाटा",
+    areaCore: "मुख्य अवधारणाहरू", coreVal: "डिपेन्डेन्सी इन्जेक्सन, async/await, REST, CORS",
+    areaModeling: "मोडेलिङ र विश्लेषण", modelingVal: "रिग्रेसन, Desmos, तथ्याङ्क",
+    areaTooling: "उपकरण", toolingVal: "Git, IIS Express, डाटाबेस माइग्रेसन",
+    areaProfessional: "व्यावसायिक", professionalVal: "परियोजना व्यवस्थापन, ग्राहक सञ्चार, सामाजिक सञ्जाल व्यवस्थापन, ग्राफिक डिजाइन",
+    hSeeAlso: "यो पनि हेर्नुहोस्",
+    seeAlso1: "सार्वजनिक यातायात म्यापिङ परियोजनाहरूको सूची", seeAlso2: "पोइन्ट-अफ-सेल सफ्टवेयर",
+    hRefs: "सन्दर्भहरू",
+    ref1: "पन्जियार, दिशान्त। GitHub प्रोफाइल।",
+    ref2: "पन्जियार, दिशान्त। LinkedIn प्रोफाइल।",
+    ref3: "नेपाल एपीएफ माध्यमिक विद्यालय, कीर्तिपुर; गोल्डेनगेट इन्टरनेशनल कलेज, पुरानो बानेश्वर — विद्यालय अभिलेखहरू।",
+    hExternal: "बाह्य लिङ्कहरू",
+    extGithub: "GitHub प्रोफाइल", extLinkedin: "LinkedIn प्रोफाइल",
+    categories: "श्रेणीहरू:",
+    catSwe: "सफ्टवेयर इन्जिनियरहरू", catFreelance: "स्वतन्त्र विकासकर्ताहरू",
+    catPeople: "नवलपरासी जिल्लाका व्यक्तिहरू", catLiving: "जीवित व्यक्तिहरू",
+    catAlumni: "इस्लिङ्टन कलेजका पूर्व विद्यार्थीहरू",
+    footer: `यो पृष्ठ अन्तिम पटक ५ जुलाई २०२६, ०९:१४ (UTC) मा सम्पादन गरिएको थियो। यो
+  विकिपिडिया शैलीमा बनाइएको व्यक्तिगत पोर्टफोलियो पृष्ठ हो; यो विकिमिडिया
+  फाउन्डेसनसँग सम्बद्ध छैन।`,
+    footerLinks: `गोपनीयता नीति · "विकिपिडिया" को बारेमा · अस्वीकरण · सम्पर्क गर्नुहोस्`,
+    editDisabled: "सम्पादन असक्षम गरिएको छ ✏️"
+  },
+
+  es: {
+    pageTitle: "Dishant Panjiyar - Wikipedia",
+    tagline: "El Portafolio Libre",
+    searchPlaceholder: "Buscar en Wikipedia",
+    navNavigation: "Navegación",
+    navMain: "Portada", navContents: "Contenidos", navCurrent: "Actualidad",
+    navRandom: "Artículo aleatorio", navAbout: "Acerca de Wikipedia", navContact: "Contáctanos",
+    navContribute: "Colaborar", navHelp: "Ayuda", navLearn: "Aprender a editar",
+    navCommunity: "Portal de la comunidad", navRecent: "Cambios recientes", navUpload: "Subir archivo",
+    navTools: "Herramientas", navWhatLinks: "Lo que enlaza aquí", navRelated: "Cambios relacionados",
+    navSpecial: "Páginas especiales", navCite: "Citar esta página", navDownload: "Descargar como PDF",
+    navLanguages: "Idiomas",
+    edit: "editar", viewHistory: "ver historial",
+    subtitle: "desarrollador full-stack y consultor de software freelance",
+    infoSubtitle: "Desarrollador Full-Stack",
+    infoPhoto: "[ foto no disponible ]",
+    infoCaption: "Panjiyar, desarrollador freelance, Katmandú",
+    infoBorn: "Nacimiento", infoBornVal: "Bardaghat, Nawalparasi, Nepal",
+    infoResidence: "Residencia", infoResidenceVal: "Katmandú, Nepal",
+    infoEducation: "Educación", infoEducationVal: "Licenciatura (Hons) en Informática — Islington College, Kamalpokhari, Katmandú",
+    infoOccupation: "Ocupación", infoOccupationVal: "Desarrollador full-stack freelance",
+    infoYears: "Años activo", infoYearsVal: "agosto de 2025", infoPresent: "– presente",
+    infoKnown: "Conocido por", infoKnownVal: "KTM Transit; plataforma de concesionario APD; sistemas empresariales de POS e inventario",
+    introP1: `<strong>Dishant Panjiyar</strong> es un desarrollador de software full-stack y
+      consultor freelance con sede en Katmandú, Nepal. Recién graduado con una
+      licenciatura (Hons) en Informática, trabaja principalmente en el desarrollo
+      de aplicaciones web, abarcando tanto sistemas de front-end como de back-end,
+      y ha entregado software empresarial que incluye sistemas de punto de venta
+      y gestión de inventario para pequeñas y medianas
+      empresas.<sup class="cite"><a href="#ref1" id="cite1">[1]</a></sup>`,
+    introP2: `Más allá del desarrollo, Panjiyar tiene experiencia en atención al cliente,
+      gestión de redes sociales y diseño gráfico, y ha ejercido como gestor de
+      proyecto en varios de sus propios proyectos, asignando y dividiendo tareas
+      entre equipos.<sup class="cite"><a href="#ref2" id="cite2">[2]</a></sup>
+      También ha experimentado con aprendizaje automático, entrenando un modelo
+      de recomendación y calificación de películas a partir de reseñas de
+      usuarios y puntuaciones de críticos.`,
+    tocTitle: "Contenidos",
+    tocEarly: "Primeros años y educación", tocCareer: "Trayectoria profesional", tocProjects: "Proyectos destacados",
+    tocApd: "APD — Plataforma de concesionario de autopartes", tocKtm: "KTM Transit",
+    tocMath: "Modelado matemático aplicado", tocOther: "Otros proyectos",
+    tocSkills: "Habilidades", tocSeeAlso: "Véase también", tocRefs: "Referencias", tocExternal: "Enlaces externos",
+    hEarly: "Primeros años y educación",
+    earlyP1: `Panjiyar nació en Bardaghat, Nawalparasi, Nepal. Completó su educación
+      secundaria en la Escuela Secundaria Nepal APF en Kirtipur, Katmandú, y
+      luego cursó el bachillerato (+2) en el GoldenGate International College,
+      en Old Baneshwor, Katmandú.<sup class="cite"><a href="#ref3" id="cite3">[3]</a></sup>
+      Posteriormente obtuvo una licenciatura (Hons) en Informática en el
+      Islington College, en Kamalpokhari, Katmandú, graduándose como uno de
+      los estudiantes más recientes del programa.`,
+    hCareer: "Trayectoria profesional",
+    careerP1: `Tras completar unas prácticas en Insource Inc Pvt Ltd, donde trabajó en
+      proyectos basados en .net y SQL para clientes con necesidades de POS y
+      gestión de inventario, con un enfoque en el desarrollo back-end, y
+      adquiriendo experiencia en comunicación con clientes y gestión de
+      proyectos, centrándose en entregar soluciones que cumplieran los
+      requisitos del cliente, además de trabajar en el desarrollo de
+      funcionalidades y la corrección de errores, Panjiyar comenzó a trabajar
+      a tiempo parcial como desarrollador freelance, asumiendo proyectos de
+      desarrollo web full-stack para clientes de varios
+      sectores.<sup class="cite"><a href="#ref1" id="cite1a">[1]</a></sup>
+      Su trabajo freelance ha incluido sitios web de comercio electrónico,
+      herramientas de mapeo de transporte público y sistemas de gestión para
+      restaurantes, cafeterías, clínicas, laboratorios y farmacias.`,
+    hProjects: "Proyectos destacados",
+    apdP1: `Un sistema completo de gestión de concesionarios construido sobre un
+      backend de ASP.NET Core Web API y un frontend en React/Vite, usando
+      PostgreSQL a través de Entity Framework
+      Core.<sup class="cite"><a href="#ref1" id="cite1c">[1]</a></sup>
+      El backend cubre la inyección de dependencias y patrones de EF Core
+      como la carga anticipada (eager loading), el borrado lógico y el
+      mapeo de DTOs, junto con flujos de datos asíncronos y configuración
+      de CORS. El frontend implementa un patrón de obtención de datos
+      maestro-detalle con actualizaciones optimistas de la interfaz, carga
+      de imágenes en Base64 y validación de formularios mediante
+      react-hook-form y Zod.`,
+    ktmP1: `Una aplicación web progresiva que ayuda a los pasajeros a planificar
+      trayectos en autobús por todo el valle de Katmandú, desarrollada como
+      proyecto de fin de carrera (FYP) en el Islington
+      College.<sup class="cite"><a href="#ref1" id="cite1d">[1]</a></sup>
+      La aplicación funciona sin conexión mediante IndexedDB y un service
+      worker, muestra mapas con Leaflet.js y datos de OpenStreetMap,
+      geocodifica ubicaciones con Nominatim y calcula rutas con OSRM,
+      respaldada por Supabase para el almacenamiento de datos y la
+      autenticación.`,
+    mathP1: `Ajustó modelos de crecimiento exponencial al PIB de Nepal (Banco
+      Mundial, 2000–2023) y a las cifras de población (1960–2023),
+      evaluando la calidad del ajuste mediante valores de R² y
+      documentando la interpolación, la extrapolación y las limitaciones
+      de cada modelo. Un proyecto relacionado resolvió un problema de
+      equilibrio de oferta y demanda tanto algebraicamente como mediante
+      una visualización interactiva.`,
+    otherP1: `Panjiyar también ha construido sistemas de gestión para cafeterías y
+      restaurantes (ventas, facturación, reserva de mesas, inventario y
+      pedidos a proveedores), un sistema de gestión de laboratorio y
+      farmacia (ventas a proveedores, seguimiento de ganancias y pérdidas,
+      inventario de medicamentos, reserva de tarjetas de pacientes y
+      registros digitales de pacientes), un sitio web de comercio
+      electrónico y un modelo de recomendación de películas entrenado con
+      reseñas de usuarios y calificaciones de críticos.`,
+    tblProject: "Proyecto", tblStack: "Tecnologías", tblRole: "Rol",
+    roleFullstack: "Desarrollador full-stack", roleAuthor: "Autor", roleDev: "Desarrollador",
+    stackDesmos: "Desmos, análisis de regresión", stackPython: "Python, aprendizaje automático",
+    projCafe: "Sistema de gestión de cafetería", projLab: "Sistema de gestión de laboratorio y farmacia",
+    projEcom: "Sitio web de comercio electrónico", projMovie: "Modelo de recomendación de películas",
+    hSkills: "Habilidades",
+    skillsP1: `La formación técnica de Panjiyar abarca la arquitectura backend, la
+      ingeniería frontend y el análisis de datos aplicado, desarrollada a
+      través de cursos académicos y trabajo independiente en proyectos.`,
+    tblArea: "Área", tblTools: "Herramientas y conceptos",
+    areaBackend: "Backend", areaFrontend: "Frontend", areaData: "Datos",
+    areaCore: "Conceptos fundamentales", coreVal: "Inyección de dependencias, async/await, REST, CORS",
+    areaModeling: "Modelado y análisis", modelingVal: "Regresión, Desmos, estadística",
+    areaTooling: "Herramientas", toolingVal: "Git, IIS Express, migraciones de bases de datos",
+    areaProfessional: "Profesional", professionalVal: "Gestión de proyectos, comunicación con clientes, gestión de redes sociales, diseño gráfico",
+    hSeeAlso: "Véase también",
+    seeAlso1: "Lista de proyectos de mapeo de transporte público", seeAlso2: "Software de punto de venta",
+    hRefs: "Referencias",
+    ref1: "Panjiyar, Dishant. Perfil de GitHub.",
+    ref2: "Panjiyar, Dishant. Perfil de LinkedIn.",
+    ref3: "Escuela Secundaria Nepal APF, Kirtipur; GoldenGate International College, Old Baneshwor — registros escolares.",
+    hExternal: "Enlaces externos",
+    extGithub: "Perfil de GitHub", extLinkedin: "Perfil de LinkedIn",
+    categories: "Categorías:",
+    catSwe: "Ingenieros de software", catFreelance: "Desarrolladores freelance",
+    catPeople: "Personas del distrito de Nawalparasi", catLiving: "Personas vivas",
+    catAlumni: "Antiguos alumnos del Islington College",
+    footer: `Esta página fue editada por última vez el 5 de julio de 2026, a las 09:14
+  (UTC). Esta es una página de portafolio personal con estilo de Wikipedia;
+  no está afiliada a la Fundación Wikimedia.`,
+    footerLinks: `Política de privacidad · Acerca de "Wikipedia" · Avisos legales · Contacto`,
+    editDisabled: "la edición está deshabilitada ✏️"
+  },
+
+  de: {
+    pageTitle: "Dishant Panjiyar - Wikipedia",
+    tagline: "Das freie Portfolio",
+    searchPlaceholder: "Wikipedia durchsuchen",
+    navNavigation: "Navigation",
+    navMain: "Hauptseite", navContents: "Inhaltsverzeichnis", navCurrent: "Aktuelle Ereignisse",
+    navRandom: "Zufälliger Artikel", navAbout: "Über Wikipedia", navContact: "Kontakt",
+    navContribute: "Mitmachen", navHelp: "Hilfe", navLearn: "Bearbeiten lernen",
+    navCommunity: "Community-Portal", navRecent: "Letzte Änderungen", navUpload: "Datei hochladen",
+    navTools: "Werkzeuge", navWhatLinks: "Links auf diese Seite", navRelated: "Änderungen an verlinkten Seiten",
+    navSpecial: "Spezialseiten", navCite: "Diese Seite zitieren", navDownload: "Als PDF herunterladen",
+    navLanguages: "Sprachen",
+    edit: "bearbeiten", viewHistory: "Versionsgeschichte",
+    subtitle: "Full-Stack-Entwickler und freiberuflicher Softwareberater",
+    infoSubtitle: "Full-Stack-Entwickler",
+    infoPhoto: "[ Fotoplatzhalter ]",
+    infoCaption: "Panjiyar, freiberuflicher Entwickler, Kathmandu",
+    infoBorn: "Geboren", infoBornVal: "Bardaghat, Nawalparasi, Nepal",
+    infoResidence: "Wohnort", infoResidenceVal: "Kathmandu, Nepal",
+    infoEducation: "Ausbildung", infoEducationVal: "BSc (Hons) Informatik — Islington College, Kamalpokhari, Kathmandu",
+    infoOccupation: "Beruf", infoOccupationVal: "Freiberuflicher Full-Stack-Entwickler",
+    infoYears: "Aktive Jahre", infoYearsVal: "August 2025", infoPresent: "– heute",
+    infoKnown: "Bekannt für", infoKnownVal: "KTM Transit; APD-Händlerplattform; Unternehmens-POS- und Bestandssysteme",
+    introP1: `<strong>Dishant Panjiyar</strong> ist ein Full-Stack-Softwareentwickler und
+      freiberuflicher Berater mit Sitz in Kathmandu, Nepal. Als kürzlicher Absolvent
+      eines BSc (Hons) in Informatik arbeitet er hauptsächlich an der Entwicklung von
+      Webanwendungen, die sowohl Front-End- als auch Back-End-Systeme umfassen, und
+      hat Unternehmenssoftware einschließlich Kassen- und Bestandsverwaltungssystemen
+      für kleine und mittlere Unternehmen
+      geliefert.<sup class="cite"><a href="#ref1" id="cite1">[1]</a></sup>`,
+    introP2: `Neben der Entwicklung verfügt Panjiyar über Erfahrung im Kundenkontakt, im
+      Social-Media-Management und im Grafikdesign und hat bei mehreren eigenen
+      Projekten als Projektleiter fungiert, wobei er Aufgaben auf Teams verteilt
+      und aufgeteilt hat.<sup class="cite"><a href="#ref2" id="cite2">[2]</a></sup>
+      Er hat außerdem mit maschinellem Lernen experimentiert und ein Modell zur
+      Filmempfehlung und -bewertung anhand von Nutzerrezensionen und
+      Kritikerbewertungen trainiert.`,
+    tocTitle: "Inhaltsverzeichnis",
+    tocEarly: "Frühes Leben und Ausbildung", tocCareer: "Werdegang", tocProjects: "Bemerkenswerte Projekte",
+    tocApd: "APD — Autoteile-Händlerplattform", tocKtm: "KTM Transit",
+    tocMath: "Angewandte mathematische Modellierung", tocOther: "Weitere Projekte",
+    tocSkills: "Fähigkeiten", tocSeeAlso: "Siehe auch", tocRefs: "Einzelnachweise", tocExternal: "Weblinks",
+    hEarly: "Frühes Leben und Ausbildung",
+    earlyP1: `Panjiyar wurde in Bardaghat, Nawalparasi, Nepal, geboren. Er absolvierte
+      seine Sekundarschulbildung an der Nepal APF Secondary School in Kirtipur,
+      Kathmandu, gefolgt von seinem +2-Studium (höhere Sekundarstufe) am
+      GoldenGate International College in Old Baneshwor,
+      Kathmandu.<sup class="cite"><a href="#ref3" id="cite3">[3]</a></sup>
+      Anschließend erwarb er einen BSc (Hons) in Informatik am Islington College
+      in Kamalpokhari, Kathmandu, als einer der jüngsten Absolventen des Programms.`,
+    hCareer: "Werdegang",
+    careerP1: `Nach einem Praktikum bei Insource Inc Pvt Ltd, wo er an .net- und
+      SQL-basierten Projekten für Kunden mit POS- und Bestandsverwaltungsbedarf
+      arbeitete, mit Schwerpunkt auf Back-End-Entwicklung, und Erfahrung in
+      Kundenkommunikation und Projektmanagement sammelte, mit Fokus auf die
+      Bereitstellung von Lösungen, die den Kundenanforderungen entsprachen, sowie
+      an Feature-Entwicklung und Fehlerbehebung arbeitete, begann Panjiyar
+      Teilzeit als freiberuflicher Entwickler zu arbeiten und übernahm
+      Full-Stack-Webentwicklungsprojekte für Kunden aus verschiedenen
+      Branchen.<sup class="cite"><a href="#ref1" id="cite1a">[1]</a></sup>
+      Seine freiberufliche Arbeit umfasste E-Commerce-Websites, Tools zur
+      Transitkartierung und Verwaltungssysteme für Restaurants, Cafés, Kliniken,
+      Labore und Apotheken.`,
+    hProjects: "Bemerkenswerte Projekte",
+    apdP1: `Ein vollständiges Händlerverwaltungssystem, aufgebaut um ein
+      ASP.NET-Core-Web-API-Backend und ein React/Vite-Frontend, unter Verwendung
+      von PostgreSQL über Entity Framework
+      Core.<sup class="cite"><a href="#ref1" id="cite1c">[1]</a></sup>
+      Das Backend deckt Dependency Injection und EF-Core-Muster wie Eager
+      Loading, Soft Delete und DTO-Mapping ab, zusammen mit asynchronen
+      Datenflüssen und CORS-Konfiguration. Das Frontend implementiert ein
+      Master-Detail-Abrufmuster mit optimistischen UI-Updates, Base64-Bild-Uploads
+      und Formularvalidierung über react-hook-form und Zod.`,
+    ktmP1: `Eine progressive Web-App, die Fahrgästen hilft, Busfahrten im gesamten
+      Kathmandu-Tal zu planen, entwickelt als Abschlussprojekt (FYP) am Islington
+      College.<sup class="cite"><a href="#ref1" id="cite1d">[1]</a></sup>
+      Die App funktioniert offline mithilfe von IndexedDB und einem Service
+      Worker, stellt Karten mit Leaflet.js und OpenStreetMap-Daten dar,
+      geokodiert Standorte mit Nominatim und berechnet Routen mit OSRM,
+      unterstützt durch Supabase für Datenspeicherung und Authentifizierung.`,
+    mathP1: `Anpassung exponentieller Wachstumsmodelle an Nepals BIP (Weltbank,
+      2000–2023) und Bevölkerungszahlen (1960–2023), wobei die Anpassungsgüte
+      anhand von R²-Werten bewertet und Interpolation, Extrapolation und die
+      Grenzen jedes Modells dokumentiert wurden. Ein verwandtes Projekt löste
+      ein Angebots-Nachfrage-Gleichgewichtsproblem sowohl algebraisch als auch
+      durch eine interaktive Visualisierung.`,
+    otherP1: `Panjiyar hat außerdem Verwaltungssysteme für Cafés und Restaurants
+      (Verkauf, Abrechnung, Tischreservierung, Bestand und
+      Lieferantenbestellungen), ein Labor- und Apothekenverwaltungssystem
+      (Lieferantenverkäufe, Gewinn-/Verlustverfolgung, Medikamentenbestand,
+      Patientenkartenbuchung und digitale Patientenakten), eine
+      E-Commerce-Website und ein Filmempfehlungsmodell entwickelt, das mit
+      Nutzerrezensionen und Kritikerbewertungen trainiert wurde.`,
+    tblProject: "Projekt", tblStack: "Technologiestack", tblRole: "Rolle",
+    roleFullstack: "Full-Stack-Entwickler", roleAuthor: "Autor", roleDev: "Entwickler",
+    stackDesmos: "Desmos, Regressionsanalyse", stackPython: "Python, maschinelles Lernen",
+    projCafe: "Café-Verwaltungssystem", projLab: "Labor- und Apothekenverwaltungssystem",
+    projEcom: "E-Commerce-Website", projMovie: "Filmempfehlungsmodell",
+    hSkills: "Fähigkeiten",
+    skillsP1: `Panjiyars technischer Hintergrund umfasst Backend-Architektur,
+      Frontend-Engineering und angewandte Datenanalyse, entwickelt durch
+      Kursarbeit und eigenständige Projektarbeit.`,
+    tblArea: "Bereich", tblTools: "Werkzeuge & Konzepte",
+    areaBackend: "Backend", areaFrontend: "Frontend", areaData: "Daten",
+    areaCore: "Kernkonzepte", coreVal: "Dependency Injection, async/await, REST, CORS",
+    areaModeling: "Modellierung & Analyse", modelingVal: "Regression, Desmos, Statistik",
+    areaTooling: "Tooling", toolingVal: "Git, IIS Express, Datenbankmigrationen",
+    areaProfessional: "Beruflich", professionalVal: "Projektmanagement, Kundenkommunikation, Social-Media-Management, Grafikdesign",
+    hSeeAlso: "Siehe auch",
+    seeAlso1: "Liste öffentlicher Verkehrskartierungsprojekte", seeAlso2: "Kassensoftware",
+    hRefs: "Einzelnachweise",
+    ref1: "Panjiyar, Dishant. GitHub-Profil.",
+    ref2: "Panjiyar, Dishant. LinkedIn-Profil.",
+    ref3: "Nepal APF Secondary School, Kirtipur; GoldenGate International College, Old Baneshwor — Schulunterlagen.",
+    hExternal: "Weblinks",
+    extGithub: "GitHub-Profil", extLinkedin: "LinkedIn-Profil",
+    categories: "Kategorien:",
+    catSwe: "Softwareingenieure", catFreelance: "Freiberufliche Entwickler",
+    catPeople: "Person aus dem Distrikt Nawalparasi", catLiving: "Lebende Person",
+    catAlumni: "Absolvent des Islington College",
+    footer: `Diese Seite wurde zuletzt am 5. Juli 2026 um 09:14 Uhr (UTC) bearbeitet.
+  Dies ist eine persönliche Portfolioseite im Wikipedia-Stil; sie steht in
+  keiner Verbindung zur Wikimedia Foundation.`,
+    footerLinks: `Datenschutz · Über „Wikipedia" · Haftungsausschlüsse · Kontakt`,
+    editDisabled: "Bearbeiten ist deaktiviert ✏️"
+  }
+};
+
+function setLanguage(lang) {
+  const dict = translations[lang];
+  if (!dict) return;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+  });
+
+  document.title = dict.pageTitle;
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langBtn === lang);
+  });
+
+  localStorage.setItem('siteLang', lang);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e){
+    const targetId = this.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'center'});
+      if(target.tagName === 'LI'){
+        target.classList.add('highlight');
+        setTimeout(()=> target.classList.remove('highlight'), 1600);
       }
-    });
+    }
   });
+});
 
-  function showTip(e){
-    e.preventDefault();
-    const tip = document.getElementById('editTip');
-    tip.style.left = (e.clientX + 12) + 'px';
-    tip.style.top = (e.clientY + 12) + 'px';
-    tip.classList.add('show');
-    clearTimeout(window._tipTimeout);
-    window._tipTimeout = setTimeout(()=> tip.classList.remove('show'), 1800);
-  }
+function showTip(e){
+  e.preventDefault();
+  const tip = document.getElementById('editTip');
+  tip.style.left = (e.clientX + 12) + 'px';
+  tip.style.top = (e.clientY + 12) + 'px';
+  tip.classList.add('show');
+  clearTimeout(window._tipTimeout);
+  window._tipTimeout = setTimeout(()=> tip.classList.remove('show'), 1800);
+}
 
-  function goToWiki() {
-    const term = encodeURIComponent(document.getElementById("search").value);
-    window.location.href = `https://en.wikipedia.org/wiki/Special:Search?search=${term}`;
-  }
-  document.getElementById('search').addEventListener('keydown', e=>{
-    if(e.key === 'Enter') goToWiki();
-  });
+function goToWiki() {
+  const term = encodeURIComponent(document.getElementById("search").value);
+  window.location.href = `https://en.wikipedia.org/wiki/Special:Search?search=${term}`;
+}
+document.getElementById('search').addEventListener('keydown', e=>{
+  if(e.key === 'Enter') goToWiki();
+});
+
+// init: URL param > saved preference > default English
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+const savedLang = localStorage.getItem('siteLang');
+setLanguage(urlLang || savedLang || 'en');
 </script>
 
 </body>
